@@ -32,7 +32,6 @@ public class BoincNetStats {
     private static Config cfg = null;
 
     private static boolean isGuiMode = false;
-//    private static BoincInfGui gui = null;
 
     private static PrintWriter output = null;
 
@@ -59,16 +58,10 @@ public class BoincNetStats {
         sb.append("] ");
         sb.append(s);
         System.out.println(sb.toString());
-//        output.println(sb.toString());
-//        output.flush();
     }
 
     public static void onShutdown() {
         out("Shutdown of application requested.");
-//        if( getGui() != null ) {
-//            gui.onShutdown();
-//        }
-        out("Shutdown of application finished.");
         output.close();
     }
 
@@ -143,9 +136,6 @@ public class BoincNetStats {
     private static boolean isGuiMode() {
         return isGuiMode;
     }
-//    private static BoincInfGui getGui() {
-//        return gui;
-//    }
 
     private static void updateLoop(final int minutes, final String dbname) {
         out("Updating...");
@@ -219,7 +209,6 @@ public class BoincNetStats {
 
     private static void runGui() {
         try {
-//            gui =
             new BoincInfGui();
         } catch (final Throwable e) {
             e.printStackTrace();

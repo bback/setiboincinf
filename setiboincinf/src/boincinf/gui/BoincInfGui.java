@@ -36,6 +36,7 @@ import boincinf.gui.actions.*;
 import boincinf.netstat.*;
 
 public class BoincInfGui extends ApplicationWindow {
+
     private TableViewer hostStatsTableViewer;
     private TableViewer singleHostStatsTableViewer;
     private final ExitAction exit_action;

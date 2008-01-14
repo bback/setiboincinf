@@ -23,13 +23,11 @@ import java.sql.*;
 
 import boincinf.*;
 
-public class BoincSetiHostsWebsite
-{
+public class BoincSetiHostsWebsite {
     String host_info_url = "http://setiweb.ssl.berkeley.edu/hosts_user.php";
     String account_info_url = "http://setiweb.ssl.berkeley.edu/home.php";
 
-    public HostStats getBoincSetiHostsWebsite(final String accountId) throws Exception
-    {
+    public HostStats getBoincSetiHostsWebsite(final String accountId) throws Exception {
         BoincNetStats.out("Retrieving SETI BOINC host statistics website ...");
 
         final String host_website = getWebsite(host_info_url, accountId);
@@ -95,8 +93,7 @@ public class BoincSetiHostsWebsite
     */
     private void addDeletedHostsToHoststats(final String html, final HostStats hs) throws Exception {
 
-        if( html.indexOf("Total credit") < 0 )
-        {
+        if( html.indexOf("Total credit") < 0 ) {
             final String o = "Received account website contains invalid content, maybe server is overloaded.";
             throw new Exception(o);
         }
@@ -137,8 +134,14 @@ public class BoincSetiHostsWebsite
         final String data_ostype = "Misc";
 
         final int ix = hs.singleHosts.size();
-        final SingleHostStat h = new SingleHostStat(ix, data_hostid, data_hostname, data_avg_credit, data_credit,
-                data_systemtype, data_ostype);
+        final SingleHostStat h = new SingleHostStat(
+                ix,
+                data_hostid,
+                data_hostname,
+                data_avg_credit,
+                data_credit,
+                data_systemtype,
+                data_ostype);
 
         hs.addSingleHost(h);
         //hs.sum_credit = overall_credit;
@@ -155,13 +158,12 @@ public class BoincSetiHostsWebsite
             <td>Microsoft Windows 2000 Professional Edition, Service Pack 4, (05.00.2195.00)</td></tr>
     <tr><td><a href=<
     */
-    private HostStats extractDataFromHostWebsite(final String html) throws Exception
-    {
-        if( html.indexOf("Your computers") < 0 )
-        {
-            final String o = "Received hosts website contains invalid content, maybe server is overloaded.";
+    private HostStats extractDataFromHostWebsite(final String html) throws Exception {
+        if( html.indexOf("Your computers") < 0 ) {
+            final String o = "Received hosts website contains invalid content, maybe the server is overloaded.";
             throw new Exception(o);
         }
+
         final HostStats hs = new HostStats();
         hs.timestamp = new Timestamp( System.currentTimeMillis() );
 
@@ -173,8 +175,7 @@ public class BoincSetiHostsWebsite
         String data_ostype;
 
         final String[] res = html.split("show_host_detail.php");
-        for(int x=1; x<res.length; x++)
-        {
+        for(int x=1; x<res.length; x++) {
             // each string is a computer, x=0 is part before first computer, ignore
             final String comphtml = res[x];
 
@@ -231,11 +232,18 @@ public class BoincSetiHostsWebsite
 
             data_ostype = removeBR(value.trim());
 
-            final SingleHostStat h = new SingleHostStat(x, data_hostid, data_hostname, data_avg_credit, data_credit,
-                                            data_systemtype, data_ostype);
+            final SingleHostStat h = new SingleHostStat(
+                    x,
+                    data_hostid,
+                    data_hostname,
+                    data_avg_credit,
+                    data_credit,
+                    data_systemtype,
+                    data_ostype);
 
             hs.addSingleHost(h);
         }
+
         hs.sumSingleHosts();
         return hs;
     }

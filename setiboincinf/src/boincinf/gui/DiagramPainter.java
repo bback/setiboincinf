@@ -24,9 +24,6 @@ import org.eclipse.swt.widgets.*;
 import boincinf.netstat.*;
 import boincinf.netstat.SQLStorage.*;
 
-/**
- * @author kgraul
- */
 public class DiagramPainter {
 
     private static java.util.List<SQLStorage.CreditsAtTime> creditsAtTimeList = null; // store.getCreditAtTimeForDayCount(90);

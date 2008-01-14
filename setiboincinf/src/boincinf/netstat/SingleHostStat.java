@@ -23,8 +23,7 @@ import org.eclipse.swt.graphics.*;
 
 import boincinf.*;
 
-public class SingleHostStat
-{
+public class SingleHostStat {
 	public long hostid;
     public String hostname;
     public double avg_credit;
@@ -40,7 +39,14 @@ public class SingleHostStat
 
     public SingleHostStat() {}
 
-	public SingleHostStat(final int rank, final String hid, final String hname, final String acred, final String cred, final String stype, final String os)
+	public SingleHostStat(
+	        final int rank,
+	        final String hid,
+	        final String hname,
+	        final String acred,
+	        final String cred,
+	        final String stype,
+	        final String os)
 	{
         gui_rank = rank;
 		hostname = hname;
@@ -157,5 +163,4 @@ public class SingleHostStat
 //        }
 //        return "";
 //    }
-
 }

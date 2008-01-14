@@ -21,17 +21,15 @@ import java.io.*;
 
 import boincinf.clientstate.*;
 
-public class BoincInf
-{
-    public static void main(final String[] args)
-    {
+public class BoincInf {
+
+    public static void main(final String[] args) {
 //        new BoincInf().runFile();
 //        new BoincInf().runRpc("192.168.0.100");
 		new BoincInf().runRpc("127.0.0.1");
     }
 
-    public void runFile()
-    {
+    public void runFile() {
         // get info from client_state.xml
 		final File xmlfile = new File("c:\\projects\\boincinf\\samples\\client_state.xml");
 
@@ -39,8 +37,7 @@ public class BoincInf
 		process(bhost);
     }
 
-    private void process(final BoincHost bhost)
-    {
+    private void process(final BoincHost bhost) {
 		bhost.refreshClientState();
 //		bhost.refreshMessages();
 //
@@ -50,11 +47,8 @@ public class BoincInf
 //		System.out.println(msgs.toString());
     }
 
-    public void runRpc(final String host)
-    {
+    public void runRpc(final String host) {
     	final BoincHost bhost = new BoincHost( host, null );
     	process(bhost);
     }
-
-
 }

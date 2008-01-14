@@ -1,0 +1,204 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<title>SetiBoincInf - Java application to collect BOINC Seti@Home statistics</title>
+<meta name="Description" content="SetiBoincInf - Java application to monitor BOINC Seti@Home statistics. Updates credit information for a given seti@home account. Tracks the summary credits together with all single host credits.">
+<meta name="Keywords" content="seti,seti@home,boinc,boincinf,setiboincinf,statistics,stats,java,tool,application,program,update,viewer,auto,statistik,programm,client,clients,single,einzelne,hosts,rechner">
+<meta name="Author" content="bback">
+<meta name="Content-language" content="en">
+<meta name="Robots" content="INDEX,FOLLOW">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+</head>
+<body><a name="top"></a>
+<div class="textbox"><img src="http://boinc.mundayweb.com/seti2/stats.php?userID=102&trans=off" border="0" align="right" width="280" height="81">
+<h1>SetiBoincInf 0.42</h1>
+<br clear="all">
+<table width="100%" cellpadding="4" cellspacing="0" bgcolor="#B9ECFF">
+  <tbody class="menua">
+    <tr valign="middle">
+      <td width="100"><a href="#download">Download</a></td>
+      <td width="100"><a href="#installation">Installation</a></td>
+      <td width="100"><a href="#usage">Usage</a></td>
+      <td width="100"><a href="#about">About</a></td>
+      <td width="100"><a href="#history">History</a></td>
+    </tr>
+  </tbody>
+</table>
+<p>SetiBoincInf is a <b>FREE</b> add-on especially for a <a href="http://boinc.berkeley.edu/" style="vertical-align:middle" target="_newb">BOINC</a> project called <a href="http://setiweb.ssl.berkeley.edu/" target="_newsh">SETI@HOME</a>. It retrieves the credit information for an account and stores the credits
+together with the client information for each client host.</p>
+<p>Updating can be done using a console program which retrieves an update
+all X minutes. The main program is a GUI to view the stored entries, update,
+import and export them, see some overall statistics and to maintain the
+entries.</p>
+<p>The program is written in JAVA and uses the Eclipse SWT GUI library. It
+runs on Windows and Linux (GTK).</p>
+<a href="images/scrnshoot1.jpg" target="_newpic"><img src="images/scrnshoot1.jpg" width="390" height="238" border="0" alt="screenshot"></a></div>
+<div class="textbox"><a name="download"></a>
+<h2>Download</h2>
+<p>Complete download <a href="download/setiboincinf-042.zip">here</a> (5.8 MB) - contains the application and all required library files for
+Linux and Windows.</p>
+<p>Update download <a href="download/setiboincinf-042-update.zip">here</a> (150 KB) - contains only the updated files. To install replace existing
+files with these updated.</p>
+<p>For a list of updates check the <a href="#history">history</a>.</p>
+<p><b>IMPORTANT NOTE:</b> If you update from version <b>0.2</b>, you need to import your old database! For updates from version 0.3 (or
+later) just copy the contents of the .zip archive (complete or update download)
+right into the directory where you copied SetiBoincInf into, and replace
+all files. Of course the program shold not run when you do this.<br>
+Starting with version 0.3 SetiBoincInf uses 2 databases instead of 1, 1
+for the GUI and 1 for the text console update tools. The GUI is able to
+get the data from the update database periodically, or the GUI can run
+an update loop by itself.<br>
+<u>Upgrading:</u> Copy the contents of the .zip archive (complete or update download) right
+into the directory where you copied SetiBoincInf into, and replace all
+files. Of course the program shold not run when you do this. <br>
+Then startup SetiBoincInf as usually, it will create the new database silently.
+The click on <i>File</i> and choose <i>Import</i>. Enter the name of your old database, which is <code>boincinfdb</code>. Then the old entries are imported and converted. <br>
+Use the tool as usual, and check out the new options dialog. Please notice
+that if you change an option like 'Don't save unchanged data' a running
+text console update program will not get noticed of this new configuration.
+It will have to be restarted to read the new configuration.</p>
+<p><b>Same in german:</b></p>
+<hr>
+<p><b>Wichtig:</b> Wenn ihr von Version <b>0.2</b> updated, müsst ihr die alten Daten importieren. Für Updates von Version
+0.3 (oder höher) einfach nur den Inhalt des .zip Files in das SetiBoincInf
+Verzeichniss kopieren und alles ersetzen.<br>
+Seit Version 0.3 verwendet SetiBoincInf 2 Datenbanken anstatt wie bisher
+einer, eine für die GUI und eine für die Textkonsolen Update Programme.
+Die GUI kann die Daten von den Update Programmen aller X Minuten einlesen
+(schaut im Options Dialog), oder die GUI kann jetzt auch selber ständige
+Updates machen.<br>
+<br>
+<b>Installation des Upgrades</b>: Entpacke das runtergeladene .zip File (Complete oder update download,
+egal) in das Verzeichnis in dem SetiBoincInf liegt. Einfach alle Dateien
+überschreiben. Jetzt die GUI wie gewohnt starten, die neuen Datenbanken
+werden beim Start generiert. <br>
+Dann muss man noch die 'alten' Daten importieren, dazu auf File klicken,
+Import wählen und den Namen der alten Datenbank eingeben, der sollte &quot;boincinfdb&quot;
+sein. Dann OK klicken und die Daten werden importiert. Fertig! <br>
+Schaut euch auch den neuen Options Dialog an, es ist einiges dazugekommen...
+Und nochwas: wenn man in Options Einstellungen ändert, bekommen laufende
+Update Programme das nicht mit, erst nach Neustart des Update Programmes
+liest es die Einstellungen ein.</p>
+<a href="#top"><img src="images/arrow_up.gif" border="0" alt="Top"></a></div>
+<div class="textbox"><a name="installation"></a>
+<h2>Quick installation guide</h2>
+<h4>Ensure Java 1.4 or later is installed (Linux/Windows)</h4>
+<p>Open a text console (Windows: click on <i>Start</i>, choose <i>Run</i> and enter <i>command</i>, then click <i>OK</i>).<br>
+Type the command <code>java -version</code> and press enter. Following should appear:</p>
+<pre>C:\&gt;java -version
+java version &quot;1.4.2&quot;
+Java(TM) 2 Runtime Environment, Standard Edition (build 1.4.2-b28)
+Java HotSpot(TM) Client VM (build 1.4.2-b28, mixed mode)</pre>
+<p>If you see an output like</p>
+<pre>'JAVA' is not recognized as an internal or external command,
+operable program or batch file.</pre>
+<p>or the Java version is before 1.4, then you have to install Java on your
+system.</p>
+<p>Go to <a href="http://java.sun.com/" target="_newsun">http://java.sun.com/</a> and download the latest Java Runtime Environment (JRE) for your platform.
+To find the JRE navigate towards the J2SE downloads. Install it and retry
+the <code>java -version</code> command as described above.</p>
+<h4>Install the application (Windows)</h4>
+<p>Download the complete application. Create a new directory on your harddisk
+(such as <code>C:\Tools\SetiBoincInf</code>) and extract the contents of the downloaded .zip file into this new directory.
+Thats it.</p>
+<p>Finally you could create a desktop icon to start SetiBoincInf. Navigate
+your explorer to the new directory where you just extracted the .zip into.
+RIGHT-click onto the <code>run_output.bat</code> file and drag it over to your windows desktop (onto a free area). Then
+drop the file and choose 'Create shortcut...' from the popup menu. Name
+the shortcut <i>SetiBoincInf</i>.</p>
+<h4>Install the application (Linux)</h4>
+<p>Download the complete application. Create a new directory on your harddisk
+(such as <code>/home/myuser/SetiBoincInf</code>) and extract the contents of the downloaded .zip file into this new directory.
+<br>
+Add the executable bit to the shell start scripts. Open a shell, change
+into the directory where you extracted the .zip file into, and execute
+the command: <code>chmod u+x *.sh</code></p>
+<p>Finally you could create a desktop icon to start SetiBoincInf. How you
+have to do this depends on the window manager you use. Please refer to
+the documentation of your window manager.<br>
+Create a shortcut to the shell script <code>run_output.sh</code> and name it <i>SetiBoincInf</i>.</p>
+<h4>Configure before first usage (Linux/Windows)</h4>
+<p>Start the application by executing the <code>run_output.bat</code> (Windows) or <code>run_output.sh</code> (Linux) file (maybe use the shortcut you created before). On first startup
+the database tables are created silently. <br>
+Now open the Options menu. Click on <i>File</i> and choose <i>Options</i>. The options dialog appears.</p>
+<img src="images/options.gif" width="327" height="121" border="0" alt="Options dialog">
+<p>You have to enter your complete <i>Account ID</i>. This ID is the account ID you got from the SETI@HOME project and which
+you use to attach to the project. The ID is used to authenticate against
+the SETI@HOME webserver when retrieving the data.<br>
+Press <i>OK</i> to leave the dialog. Now all is setup properly.</p>
+<a href="#top"><img src="images/arrow_up.gif" border="0" alt="Top"></a></div>
+<div class="textbox"><a name="usage"></a>
+<h2>Usage</h2>
+<p>The GUI application allows you to retrieve updates from SETI@HOME website.
+You can export your database and other users who work for the same account
+can import the data. You can delete unneeded entries by selecting them
+and choosing delete from menu (or popup menu).<br>
+All of this is really intuitive, try it out!</p>
+<p>You can also run a single update by invoking the <code>run_update.bat</code> file. This stores the retrieved data in the database without to show a
+GUI. This is useful if you want to start SetiBoincInf updates using the
+crontab, but there is another way to continuously run the updates.</p>
+<p>To allow continuous updates, invoke the <code>run_updateloop.bat</code> file. This text console program updates all X minutes and sleeps between
+the updates. To configure the sleep time change the <code>run_updateloop.bat</code> file. The preconfigured default is 60 minutes.</p>
+<p>(<b>Note</b>: Needless to say that Linux users execute the .sh files instead of the
+.bat files ;) ).</p>
+<a href="#top"><img src="images/arrow_up.gif" border="0" alt="Top"></a></div>
+<div class="textbox"><a name="about"></a>
+<h2>About</h2>
+<p>SetiBoincInf is free software. I plan to release it as Open Source later
+if someone is interested. The program is enhanced continuously to make
+it more useful, ideas are very welcome :)</p>
+<p>The SetiBoincInf homepage is <a href="http://setiboincinf.bback.de/" target="_newhome">http://setiboincinf.bback.de/</a></p>
+<p>If someone wants to join development or just wants to read over the source
+code, please contact me.</p>
+<p>For ideas, questions and comments mail to <a href="mailto:setiboincinf@bback.de">setiboincinf@bback.de</a>.</p>
+<h4>Links</h4>
+<p>To monitor your BOINC clients directly i recommend the tool <b>BoincView</b> <a href="http://boincview.amanheis.de/" target="_newext1">http://boincview.amanheis.de/</a></p>
+<h4>Other</h4>
+<p>SetiBoincInf uses hsqldb (<a href="http://hsqldb.sourceforge.net/" target="_new2">http://hsqldb.sourceforge.net/</a>), a pure Java SQL database backend. See their <a href="hsqlLicense.html" target="_new3">license</a> information.</p>
+<p>SetiBoincInf uses the Eclipse SWT toolkit (<a href="http://www.eclipse.org/platform/" target="_new4">http://www.eclipse.org/platform/</a>).</p>
+<h4>Team</h4>
+<p>I'm a member of the famous SETI@HOME team Seti.Germany.</p>
+<p><a href="http://www.setigermany.de/" target="_newteam"><img src="http://www.setigermany.de/pictures/SGerLogo.gif" alt="SETI.Germany" border="0" width="144" height="36"></a></p>
+<a href="#top"><img src="images/arrow_up.gif" border="0" alt="Top"></a></div>
+<div class="textbox"><a name="history"></a>
+<h2>History</h2>
+<p>v0.42 (2005-05-14)</p>
+<ul>
+  <li>fixed bug, deleted hosts credits were missed in overall credits
+</ul>
+<p>v0.41 (2005-05-14)</p>
+<ul>
+  <li>fixed bug, number on BOINC website had a , as thousend separator
+</ul>
+<p>v0.4 (2004-08-28)</p>
+<ul>
+  <li>gui state saved (location, size, table column sizes, ...)
+  <li>timestamps on console
+  <li>fixed bug: unsorted insert of new hoststats entries
+  <li>run_output.bat shows no text console any longer (run_output_dbg.bat does!)
+</ul>
+<p>v0.3 (2004-08-27)</p>
+<ul>
+  <li>proxy/socks support
+  <li>auto update from GUI
+  <li>option to don't save unchanged data
+  <li>sum_avg_credit column in table
+  <li>console update program and gui now use different database tables
+</ul>
+<p>v0.2 (2004-08-24)</p>
+<ul>
+  <li>added libraries and shell scripts for Linux
+  <li>code cleanings
+</ul>
+<p>v0.1 (2004-08-23)</p>
+<ul>
+  <li>initial release, only Windows supported
+</ul>
+<a href="#top"><img src="images/arrow_up.gif" border="0" alt="Top"></a></div>
+<div class="textonly">
+<p><font color="#aaaaaa">Last Modified: <!--#flastmod virtual="/index.shtml" --></font></p>
+</div>
+</body>
+</html>

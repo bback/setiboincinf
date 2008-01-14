@@ -1,4 +1,4 @@
-#labels Phase-Deploy
+#labels Phase-Deploy,Featured
 = Quick installation guide =
 
 Ensure Java 1.4 or later is installed (Linux/Windows)

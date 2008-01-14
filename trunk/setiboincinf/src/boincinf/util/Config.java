@@ -23,12 +23,11 @@ import java.util.*;
 import boincinf.*;
 
 public class Config {
+
     private static final String CFG_FILENAME = "boincinf.cfg";
     private Properties props = null;
 
-
 //    TreeMap sortedSettings = new TreeMap( settingsHash ); // sort the lines
-
 
     public void readConfig() {
         final Properties p = new Properties();
@@ -160,5 +159,4 @@ public class Config {
     public void setProperty(final String k, final String v) {
         props.put(k, v);
     }
-
 }

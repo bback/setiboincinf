@@ -22,9 +22,6 @@ import org.eclipse.jface.action.*;
 import boincinf.gui.*;
 import boincinf.netstat.*;
 
-/**
- * @author kgraul
- */
 public class CreditUpdateOverviewAction extends Action {
     BoincInfGui gui;
     SQLStorage sqlStore;
@@ -42,5 +39,4 @@ public class CreditUpdateOverviewAction extends Action {
         final CreditUpdateOverviewDialog optdlg = new CreditUpdateOverviewDialog(gui, sqlStore);
         optdlg.open();
     }
-
 }

@@ -17,9 +17,6 @@
 */
 package boincinf.gui;
 
-/**
- * @author kgraul
- */
 public class CreditUpdateData {
 
     public long hostId;
@@ -38,5 +35,4 @@ public class CreditUpdateData {
         }
         return "*err*";
     }
-
 }

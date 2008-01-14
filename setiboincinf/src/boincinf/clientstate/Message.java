@@ -1,8 +1,25 @@
+/*
+  Copyright (C) 2008  SetiBoincInf Project
+
+  This program is free software; you can redistribute it and/or
+  modify it under the terms of the GNU General Public License as
+  published by the Free Software Foundation; either version 2 of
+  the License, or (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+  General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program; if not, write to the Free Software
+  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+*/
 package boincinf.clientstate;
 
-import org.w3c.dom.Element;
+import org.w3c.dom.*;
 
-import boincinf.util.XmlTools;
+import boincinf.util.*;
 
 
 /*
@@ -19,22 +36,22 @@ import boincinf.util.XmlTools;
 public class Message
 {
     String body;
-    
+
     int pri;
     int seqno;
     long time;
-    
-    public boolean initialize(Element ele)
+
+    public boolean initialize(final Element ele)
     {
-        String strPri = XmlTools.getValidText(ele, "pri");
-		String strSeqno = XmlTools.getValidText(ele, "seqno");
+        final String strPri = XmlTools.getValidText(ele, "pri");
+		final String strSeqno = XmlTools.getValidText(ele, "seqno");
         this.body = XmlTools.getValidText(ele, "body");
-		String strTime = XmlTools.getValidText(ele, "time");
-        
+		final String strTime = XmlTools.getValidText(ele, "time");
+
         this.pri = Integer.parseInt(strPri);
 		this.seqno = Integer.parseInt(strSeqno);
 		this.time = Long.parseLong(strTime);
-        
+
         return true;
     }
 }

@@ -1,13 +1,30 @@
+/*
+  Copyright (C) 2008  SetiBoincInf Project
+
+  This program is free software; you can redistribute it and/or
+  modify it under the terms of the GNU General Public License as
+  published by the Free Software Foundation; either version 2 of
+  the License, or (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+  General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program; if not, write to the Free Software
+  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+*/
 package boincinf.gui;
 
-import org.eclipse.swt.SWT;
+import org.eclipse.swt.*;
 import org.eclipse.swt.events.*;
-import org.eclipse.swt.graphics.Rectangle;
+import org.eclipse.swt.graphics.*;
 import org.eclipse.swt.layout.*;
 import org.eclipse.swt.widgets.*;
 
-import boincinf.BoincNetStats;
-import boincinf.util.Config;
+import boincinf.*;
+import boincinf.util.*;
 
 /**
 * This code was generated using CloudGarden's Jigloo
@@ -60,11 +77,11 @@ public class NiceOptionsDialog extends org.eclipse.swt.widgets.Dialog {
 	private Composite buttonComposite;
 	private TabFolder tabFolder;
 	private Shell dialogShell;
-    
-    private Config origConfig;
-    private BoincInfGui gui;
 
-    public NiceOptionsDialog(BoincInfGui g, Config cfg) {
+    private final Config origConfig;
+    private final BoincInfGui gui;
+
+    public NiceOptionsDialog(final BoincInfGui g, final Config cfg) {
         super(g.getShell());
         origConfig = cfg;
         gui = g;
@@ -77,8 +94,8 @@ public class NiceOptionsDialog extends org.eclipse.swt.widgets.Dialog {
 	public void open(){
 		try {
 			preInitGUI();
-	
-			Shell parent = getParent();
+
+			final Shell parent = getParent();
 			dialogShell = new Shell(parent, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL);
 			dialogShell.setText(getText());
 			tabFolder = new TabFolder(dialogShell,SWT.NULL);
@@ -122,11 +139,11 @@ public class NiceOptionsDialog extends org.eclipse.swt.widgets.Dialog {
 			label1 = new Label(buttonComposite,SWT.NULL);
 			Bok = new Button(buttonComposite,SWT.PUSH| SWT.CENTER);
 			Bcancel = new Button(buttonComposite,SWT.PUSH| SWT.CENTER);
-	
+
 			dialogShell.setText("Options");
 			dialogShell.setSize(new org.eclipse.swt.graphics.Point(450,400));
-	
-			GridData tabFolderLData = new GridData();
+
+			final GridData tabFolderLData = new GridData();
 			tabFolderLData.verticalAlignment = GridData.FILL;
 			tabFolderLData.horizontalAlignment = GridData.FILL;
 			tabFolderLData.widthHint = -1;
@@ -138,12 +155,12 @@ public class NiceOptionsDialog extends org.eclipse.swt.widgets.Dialog {
 			tabFolderLData.grabExcessVerticalSpace = true;
 			tabFolder.setLayoutData(tabFolderLData);
 			tabFolder.setSize(new org.eclipse.swt.graphics.Point(432,343));
-	
+
 			accountTabItem.setControl(composite1);
 			accountTabItem.setText("Account");
-	
-	
-			GridData label2LData = new GridData();
+
+
+			final GridData label2LData = new GridData();
 			label2LData.verticalAlignment = GridData.CENTER;
 			label2LData.horizontalAlignment = GridData.BEGINNING;
 			label2LData.widthHint = -1;
@@ -155,8 +172,8 @@ public class NiceOptionsDialog extends org.eclipse.swt.widgets.Dialog {
 			label2LData.grabExcessVerticalSpace = false;
 			label2.setLayoutData(label2LData);
 			label2.setText("Account ID");
-	
-			GridData TaccountidLData = new GridData();
+
+			final GridData TaccountidLData = new GridData();
 			TaccountidLData.verticalAlignment = GridData.CENTER;
 			TaccountidLData.horizontalAlignment = GridData.BEGINNING;
 			TaccountidLData.widthHint = 225;
@@ -167,7 +184,7 @@ public class NiceOptionsDialog extends org.eclipse.swt.widgets.Dialog {
 			TaccountidLData.grabExcessHorizontalSpace = false;
 			TaccountidLData.grabExcessVerticalSpace = false;
 			Taccountid.setLayoutData(TaccountidLData);
-			GridLayout composite1Layout = new GridLayout(2, true);
+			final GridLayout composite1Layout = new GridLayout(2, true);
 			composite1.setLayout(composite1Layout);
 			composite1Layout.marginWidth = 10;
 			composite1Layout.marginHeight = 10;
@@ -176,12 +193,12 @@ public class NiceOptionsDialog extends org.eclipse.swt.widgets.Dialog {
 			composite1Layout.horizontalSpacing = 15;
 			composite1Layout.verticalSpacing = 5;
 			composite1.layout();
-	
+
 			connectionTabItem.setControl(composite2);
 			connectionTabItem.setText("Connection");
-	
-	
-			GridData group1LData = new GridData();
+
+
+			final GridData group1LData = new GridData();
 			group1LData.verticalAlignment = GridData.FILL;
 			group1LData.horizontalAlignment = GridData.FILL;
 			group1LData.widthHint = -1;
@@ -193,8 +210,8 @@ public class NiceOptionsDialog extends org.eclipse.swt.widgets.Dialog {
 			group1LData.grabExcessVerticalSpace = true;
 			group1.setLayoutData(group1LData);
 			group1.setText("Connection");
-	
-			GridData RBdirectLData = new GridData();
+
+			final GridData RBdirectLData = new GridData();
 			RBdirectLData.verticalAlignment = GridData.CENTER;
 			RBdirectLData.horizontalAlignment = GridData.BEGINNING;
 			RBdirectLData.widthHint = 118;
@@ -208,12 +225,13 @@ public class NiceOptionsDialog extends org.eclipse.swt.widgets.Dialog {
 			RBdirect.setText("Direct connection");
 			RBdirect.setSize(new org.eclipse.swt.graphics.Point(118,16));
 			RBdirect.addSelectionListener( new SelectionAdapter() {
-				public void widgetSelected(SelectionEvent evt) {
+				@Override
+                public void widgetSelected(final SelectionEvent evt) {
 					RBdirectWidgetSelected(evt);
 				}
 			});
-	
-			GridData RBproxyLData = new GridData();
+
+			final GridData RBproxyLData = new GridData();
 			RBproxyLData.verticalAlignment = GridData.CENTER;
 			RBproxyLData.horizontalAlignment = GridData.BEGINNING;
 			RBproxyLData.widthHint = 112;
@@ -227,12 +245,13 @@ public class NiceOptionsDialog extends org.eclipse.swt.widgets.Dialog {
 			RBproxy.setText("Use proxy server");
 			RBproxy.setSize(new org.eclipse.swt.graphics.Point(112,16));
 			RBproxy.addSelectionListener( new SelectionAdapter() {
-				public void widgetSelected(SelectionEvent evt) {
+				@Override
+                public void widgetSelected(final SelectionEvent evt) {
 					RBproxyWidgetSelected(evt);
 				}
 			});
-	
-			GridData composite3LData = new GridData();
+
+			final GridData composite3LData = new GridData();
 			composite3LData.verticalAlignment = GridData.CENTER;
 			composite3LData.horizontalAlignment = GridData.BEGINNING;
 			composite3LData.widthHint = -1;
@@ -243,8 +262,8 @@ public class NiceOptionsDialog extends org.eclipse.swt.widgets.Dialog {
 			composite3LData.grabExcessHorizontalSpace = false;
 			composite3LData.grabExcessVerticalSpace = false;
 			composite3.setLayoutData(composite3LData);
-	
-			GridData label3LData = new GridData();
+
+			final GridData label3LData = new GridData();
 			label3LData.verticalAlignment = GridData.CENTER;
 			label3LData.horizontalAlignment = GridData.BEGINNING;
 			label3LData.widthHint = -1;
@@ -256,8 +275,8 @@ public class NiceOptionsDialog extends org.eclipse.swt.widgets.Dialog {
 			label3LData.grabExcessVerticalSpace = false;
 			label3.setLayoutData(label3LData);
 			label3.setText("Proxy server");
-	
-			GridData TproxyServerLData = new GridData();
+
+			final GridData TproxyServerLData = new GridData();
 			TproxyServerLData.verticalAlignment = GridData.CENTER;
 			TproxyServerLData.horizontalAlignment = GridData.BEGINNING;
 			TproxyServerLData.widthHint = 175;
@@ -269,8 +288,8 @@ public class NiceOptionsDialog extends org.eclipse.swt.widgets.Dialog {
 			TproxyServerLData.grabExcessVerticalSpace = false;
 			TproxyServer.setLayoutData(TproxyServerLData);
 			TproxyServer.setText("text1");
-	
-			GridData label4LData = new GridData();
+
+			final GridData label4LData = new GridData();
 			label4LData.verticalAlignment = GridData.CENTER;
 			label4LData.horizontalAlignment = GridData.BEGINNING;
 			label4LData.widthHint = -1;
@@ -282,8 +301,8 @@ public class NiceOptionsDialog extends org.eclipse.swt.widgets.Dialog {
 			label4LData.grabExcessVerticalSpace = false;
 			label4.setLayoutData(label4LData);
 			label4.setText("Proxy port");
-	
-			GridData TproxyPortLData = new GridData();
+
+			final GridData TproxyPortLData = new GridData();
 			TproxyPortLData.verticalAlignment = GridData.CENTER;
 			TproxyPortLData.horizontalAlignment = GridData.BEGINNING;
 			TproxyPortLData.widthHint = 175;
@@ -295,7 +314,7 @@ public class NiceOptionsDialog extends org.eclipse.swt.widgets.Dialog {
 			TproxyPortLData.grabExcessVerticalSpace = false;
 			TproxyPort.setLayoutData(TproxyPortLData);
 			TproxyPort.setText("pport");
-			GridLayout composite3Layout = new GridLayout(2, true);
+			final GridLayout composite3Layout = new GridLayout(2, true);
 			composite3.setLayout(composite3Layout);
 			composite3Layout.marginWidth = 15;
 			composite3Layout.marginHeight = 5;
@@ -304,8 +323,8 @@ public class NiceOptionsDialog extends org.eclipse.swt.widgets.Dialog {
 			composite3Layout.horizontalSpacing = 15;
 			composite3Layout.verticalSpacing = 7;
 			composite3.layout();
-	
-			GridData RBsocksLData = new GridData();
+
+			final GridData RBsocksLData = new GridData();
 			RBsocksLData.verticalAlignment = GridData.CENTER;
 			RBsocksLData.horizontalAlignment = GridData.BEGINNING;
 			RBsocksLData.widthHint = -1;
@@ -318,12 +337,13 @@ public class NiceOptionsDialog extends org.eclipse.swt.widgets.Dialog {
 			RBsocks.setLayoutData(RBsocksLData);
 			RBsocks.setText("Use socks server");
 			RBsocks.addSelectionListener( new SelectionAdapter() {
-				public void widgetSelected(SelectionEvent evt) {
+				@Override
+                public void widgetSelected(final SelectionEvent evt) {
 					RBsocksWidgetSelected(evt);
 				}
 			});
-	
-			GridData composite4LData = new GridData();
+
+			final GridData composite4LData = new GridData();
 			composite4LData.verticalAlignment = GridData.CENTER;
 			composite4LData.horizontalAlignment = GridData.BEGINNING;
 			composite4LData.widthHint = -1;
@@ -334,8 +354,8 @@ public class NiceOptionsDialog extends org.eclipse.swt.widgets.Dialog {
 			composite4LData.grabExcessHorizontalSpace = false;
 			composite4LData.grabExcessVerticalSpace = false;
 			composite4.setLayoutData(composite4LData);
-	
-			GridData label5LData = new GridData();
+
+			final GridData label5LData = new GridData();
 			label5LData.verticalAlignment = GridData.CENTER;
 			label5LData.horizontalAlignment = GridData.BEGINNING;
 			label5LData.widthHint = -1;
@@ -347,8 +367,8 @@ public class NiceOptionsDialog extends org.eclipse.swt.widgets.Dialog {
 			label5LData.grabExcessVerticalSpace = false;
 			label5.setLayoutData(label5LData);
 			label5.setText("Socks server");
-	
-			GridData TsocksServerLData = new GridData();
+
+			final GridData TsocksServerLData = new GridData();
 			TsocksServerLData.verticalAlignment = GridData.CENTER;
 			TsocksServerLData.horizontalAlignment = GridData.BEGINNING;
 			TsocksServerLData.widthHint = 175;
@@ -360,8 +380,8 @@ public class NiceOptionsDialog extends org.eclipse.swt.widgets.Dialog {
 			TsocksServerLData.grabExcessVerticalSpace = false;
 			TsocksServer.setLayoutData(TsocksServerLData);
 			TsocksServer.setText("sserver");
-	
-			GridData label6LData = new GridData();
+
+			final GridData label6LData = new GridData();
 			label6LData.verticalAlignment = GridData.CENTER;
 			label6LData.horizontalAlignment = GridData.BEGINNING;
 			label6LData.widthHint = -1;
@@ -373,8 +393,8 @@ public class NiceOptionsDialog extends org.eclipse.swt.widgets.Dialog {
 			label6LData.grabExcessVerticalSpace = false;
 			label6.setLayoutData(label6LData);
 			label6.setText("Socks port");
-	
-			GridData TsocksPortLData = new GridData();
+
+			final GridData TsocksPortLData = new GridData();
 			TsocksPortLData.verticalAlignment = GridData.CENTER;
 			TsocksPortLData.horizontalAlignment = GridData.BEGINNING;
 			TsocksPortLData.widthHint = 175;
@@ -387,7 +407,7 @@ public class NiceOptionsDialog extends org.eclipse.swt.widgets.Dialog {
 			TsocksPort.setLayoutData(TsocksPortLData);
 			TsocksPort.setText("sport");
 			TsocksPort.setSize(new org.eclipse.swt.graphics.Point(175,14));
-			GridLayout composite4Layout = new GridLayout(2, true);
+			final GridLayout composite4Layout = new GridLayout(2, true);
 			composite4.setLayout(composite4Layout);
 			composite4Layout.marginWidth = 15;
 			composite4Layout.marginHeight = 5;
@@ -396,7 +416,7 @@ public class NiceOptionsDialog extends org.eclipse.swt.widgets.Dialog {
 			composite4Layout.horizontalSpacing = 15;
 			composite4Layout.verticalSpacing = 7;
 			composite4.layout();
-			GridLayout group1Layout = new GridLayout(1, true);
+			final GridLayout group1Layout = new GridLayout(1, true);
 			group1.setLayout(group1Layout);
 			group1Layout.marginWidth = 5;
 			group1Layout.marginHeight = 5;
@@ -405,7 +425,7 @@ public class NiceOptionsDialog extends org.eclipse.swt.widgets.Dialog {
 			group1Layout.horizontalSpacing = 5;
 			group1Layout.verticalSpacing = 5;
 			group1.layout();
-			GridLayout composite2Layout = new GridLayout(1, true);
+			final GridLayout composite2Layout = new GridLayout(1, true);
 			composite2.setLayout(composite2Layout);
 			composite2Layout.marginWidth = 5;
 			composite2Layout.marginHeight = 5;
@@ -414,12 +434,12 @@ public class NiceOptionsDialog extends org.eclipse.swt.widgets.Dialog {
 			composite2Layout.horizontalSpacing = 5;
 			composite2Layout.verticalSpacing = 5;
 			composite2.layout();
-	
+
 			updateTabItem.setControl(composite5);
 			updateTabItem.setText("Updating");
-	
-	
-			GridData group2LData = new GridData();
+
+
+			final GridData group2LData = new GridData();
 			group2LData.verticalAlignment = GridData.FILL;
 			group2LData.horizontalAlignment = GridData.FILL;
 			group2LData.widthHint = -1;
@@ -431,8 +451,8 @@ public class NiceOptionsDialog extends org.eclipse.swt.widgets.Dialog {
 			group2LData.grabExcessVerticalSpace = true;
 			group2.setLayoutData(group2LData);
 			group2.setText("Update from update database");
-	
-			GridData RBupdateDBmanualLData = new GridData();
+
+			final GridData RBupdateDBmanualLData = new GridData();
 			RBupdateDBmanualLData.verticalAlignment = GridData.CENTER;
 			RBupdateDBmanualLData.horizontalAlignment = GridData.BEGINNING;
 			RBupdateDBmanualLData.widthHint = -1;
@@ -445,12 +465,13 @@ public class NiceOptionsDialog extends org.eclipse.swt.widgets.Dialog {
 			RBupdateDBmanual.setLayoutData(RBupdateDBmanualLData);
 			RBupdateDBmanual.setText("Manual update");
 			RBupdateDBmanual.addSelectionListener( new SelectionAdapter() {
-				public void widgetSelected(SelectionEvent evt) {
+				@Override
+                public void widgetSelected(final SelectionEvent evt) {
 					RBupdateDBmanualWidgetSelected(evt);
 				}
 			});
-	
-			GridData RBupdateDBautoLData = new GridData();
+
+			final GridData RBupdateDBautoLData = new GridData();
 			RBupdateDBautoLData.verticalAlignment = GridData.CENTER;
 			RBupdateDBautoLData.horizontalAlignment = GridData.BEGINNING;
 			RBupdateDBautoLData.widthHint = -1;
@@ -463,12 +484,13 @@ public class NiceOptionsDialog extends org.eclipse.swt.widgets.Dialog {
 			RBupdateDBauto.setLayoutData(RBupdateDBautoLData);
 			RBupdateDBauto.setText("Automatic update");
 			RBupdateDBauto.addSelectionListener( new SelectionAdapter() {
-				public void widgetSelected(SelectionEvent evt) {
+				@Override
+                public void widgetSelected(final SelectionEvent evt) {
 					RBupdateDBautoWidgetSelected(evt);
 				}
 			});
-	
-			GridData composite7LData = new GridData();
+
+			final GridData composite7LData = new GridData();
 			composite7LData.verticalAlignment = GridData.FILL;
 			composite7LData.horizontalAlignment = GridData.FILL;
 			composite7LData.widthHint = -1;
@@ -479,8 +501,8 @@ public class NiceOptionsDialog extends org.eclipse.swt.widgets.Dialog {
 			composite7LData.grabExcessHorizontalSpace = false;
 			composite7LData.grabExcessVerticalSpace = true;
 			composite7.setLayoutData(composite7LData);
-	
-			GridData label7LData = new GridData();
+
+			final GridData label7LData = new GridData();
 			label7LData.verticalAlignment = GridData.CENTER;
 			label7LData.horizontalAlignment = GridData.BEGINNING;
 			label7LData.widthHint = -1;
@@ -492,8 +514,8 @@ public class NiceOptionsDialog extends org.eclipse.swt.widgets.Dialog {
 			label7LData.grabExcessVerticalSpace = false;
 			label7.setLayoutData(label7LData);
 			label7.setText("Interval (minutes)");
-	
-			GridData TupdateDBintervalLData = new GridData();
+
+			final GridData TupdateDBintervalLData = new GridData();
 			TupdateDBintervalLData.verticalAlignment = GridData.CENTER;
 			TupdateDBintervalLData.horizontalAlignment = GridData.BEGINNING;
 			TupdateDBintervalLData.widthHint = -1;
@@ -506,7 +528,7 @@ public class NiceOptionsDialog extends org.eclipse.swt.widgets.Dialog {
 			TupdateDBinterval.setLayoutData(TupdateDBintervalLData);
 			TupdateDBinterval.setText("text1");
 			TupdateDBinterval.setDoubleClickEnabled(false);
-			GridLayout composite7Layout = new GridLayout(2, true);
+			final GridLayout composite7Layout = new GridLayout(2, true);
 			composite7.setLayout(composite7Layout);
 			composite7Layout.marginWidth = 5;
 			composite7Layout.marginHeight = 5;
@@ -515,8 +537,8 @@ public class NiceOptionsDialog extends org.eclipse.swt.widgets.Dialog {
 			composite7Layout.horizontalSpacing = 15;
 			composite7Layout.verticalSpacing = 5;
 			composite7.layout();
-	
-			GridData CBdeleteAfterUpdImportLData = new GridData();
+
+			final GridData CBdeleteAfterUpdImportLData = new GridData();
 			CBdeleteAfterUpdImportLData.verticalAlignment = GridData.CENTER;
 			CBdeleteAfterUpdImportLData.horizontalAlignment = GridData.BEGINNING;
 			CBdeleteAfterUpdImportLData.widthHint = -1;
@@ -528,7 +550,7 @@ public class NiceOptionsDialog extends org.eclipse.swt.widgets.Dialog {
 			CBdeleteAfterUpdImportLData.grabExcessVerticalSpace = false;
 			CBdeleteAfterUpdImport.setLayoutData(CBdeleteAfterUpdImportLData);
 			CBdeleteAfterUpdImport.setText("Delete entries from update database after import");
-			GridLayout group2Layout = new GridLayout(1, true);
+			final GridLayout group2Layout = new GridLayout(1, true);
 			group2.setLayout(group2Layout);
 			group2Layout.marginWidth = 5;
 			group2Layout.marginHeight = 5;
@@ -537,8 +559,8 @@ public class NiceOptionsDialog extends org.eclipse.swt.widgets.Dialog {
 			group2Layout.horizontalSpacing = 5;
 			group2Layout.verticalSpacing = 5;
 			group2.layout();
-	
-			GridData group3LData = new GridData();
+
+			final GridData group3LData = new GridData();
 			group3LData.verticalAlignment = GridData.FILL;
 			group3LData.horizontalAlignment = GridData.FILL;
 			group3LData.widthHint = -1;
@@ -551,8 +573,8 @@ public class NiceOptionsDialog extends org.eclipse.swt.widgets.Dialog {
 			group3.setLayoutData(group3LData);
 			group3.setText("Update from website");
 			group3.setSize(new org.eclipse.swt.graphics.Point(416,117));
-	
-			GridData RBupdateWebManualLData = new GridData();
+
+			final GridData RBupdateWebManualLData = new GridData();
 			RBupdateWebManualLData.verticalAlignment = GridData.CENTER;
 			RBupdateWebManualLData.horizontalAlignment = GridData.BEGINNING;
 			RBupdateWebManualLData.widthHint = -1;
@@ -565,12 +587,13 @@ public class NiceOptionsDialog extends org.eclipse.swt.widgets.Dialog {
 			RBupdateWebManual.setLayoutData(RBupdateWebManualLData);
 			RBupdateWebManual.setText("Manual update");
 			RBupdateWebManual.addSelectionListener( new SelectionAdapter() {
-				public void widgetSelected(SelectionEvent evt) {
+				@Override
+                public void widgetSelected(final SelectionEvent evt) {
 					RBupdateWebManualWidgetSelected(evt);
 				}
 			});
-	
-			GridData RBupdateWebAutoLData = new GridData();
+
+			final GridData RBupdateWebAutoLData = new GridData();
 			RBupdateWebAutoLData.verticalAlignment = GridData.CENTER;
 			RBupdateWebAutoLData.horizontalAlignment = GridData.BEGINNING;
 			RBupdateWebAutoLData.widthHint = -1;
@@ -583,12 +606,13 @@ public class NiceOptionsDialog extends org.eclipse.swt.widgets.Dialog {
 			RBupdateWebAuto.setLayoutData(RBupdateWebAutoLData);
 			RBupdateWebAuto.setText("Automatic update");
 			RBupdateWebAuto.addSelectionListener( new SelectionAdapter() {
-				public void widgetSelected(SelectionEvent evt) {
+				@Override
+                public void widgetSelected(final SelectionEvent evt) {
 					RBupdateWebAutoWidgetSelected(evt);
 				}
 			});
-	
-			GridData composite6LData = new GridData();
+
+			final GridData composite6LData = new GridData();
 			composite6LData.verticalAlignment = GridData.FILL;
 			composite6LData.horizontalAlignment = GridData.FILL;
 			composite6LData.widthHint = -1;
@@ -600,8 +624,8 @@ public class NiceOptionsDialog extends org.eclipse.swt.widgets.Dialog {
 			composite6LData.grabExcessVerticalSpace = true;
 			composite6.setLayoutData(composite6LData);
 			composite6.setSize(new org.eclipse.swt.graphics.Point(391,65));
-	
-			GridData label8LData = new GridData();
+
+			final GridData label8LData = new GridData();
 			label8LData.verticalAlignment = GridData.CENTER;
 			label8LData.horizontalAlignment = GridData.BEGINNING;
 			label8LData.widthHint = -1;
@@ -613,8 +637,8 @@ public class NiceOptionsDialog extends org.eclipse.swt.widgets.Dialog {
 			label8LData.grabExcessVerticalSpace = false;
 			label8.setLayoutData(label8LData);
 			label8.setText("Interval (minutes)");
-	
-			GridData TupdateWebIntervalLData = new GridData();
+
+			final GridData TupdateWebIntervalLData = new GridData();
 			TupdateWebIntervalLData.verticalAlignment = GridData.CENTER;
 			TupdateWebIntervalLData.horizontalAlignment = GridData.BEGINNING;
 			TupdateWebIntervalLData.widthHint = -1;
@@ -626,7 +650,7 @@ public class NiceOptionsDialog extends org.eclipse.swt.widgets.Dialog {
 			TupdateWebIntervalLData.grabExcessVerticalSpace = false;
 			TupdateWebInterval.setLayoutData(TupdateWebIntervalLData);
 			TupdateWebInterval.setText("text2");
-			GridLayout composite6Layout = new GridLayout(2, true);
+			final GridLayout composite6Layout = new GridLayout(2, true);
 			composite6.setLayout(composite6Layout);
 			composite6Layout.marginWidth = 5;
 			composite6Layout.marginHeight = 5;
@@ -635,7 +659,7 @@ public class NiceOptionsDialog extends org.eclipse.swt.widgets.Dialog {
 			composite6Layout.horizontalSpacing = 15;
 			composite6Layout.verticalSpacing = 5;
 			composite6.layout();
-			GridLayout group3Layout = new GridLayout(1, true);
+			final GridLayout group3Layout = new GridLayout(1, true);
 			group3.setLayout(group3Layout);
 			group3Layout.marginWidth = 5;
 			group3Layout.marginHeight = 5;
@@ -644,8 +668,8 @@ public class NiceOptionsDialog extends org.eclipse.swt.widgets.Dialog {
 			group3Layout.horizontalSpacing = 5;
 			group3Layout.verticalSpacing = 5;
 			group3.layout();
-	
-			GridData CBupdateOnlyIfNewDataLData = new GridData();
+
+			final GridData CBupdateOnlyIfNewDataLData = new GridData();
 			CBupdateOnlyIfNewDataLData.verticalAlignment = GridData.CENTER;
 			CBupdateOnlyIfNewDataLData.horizontalAlignment = GridData.BEGINNING;
 			CBupdateOnlyIfNewDataLData.widthHint = -1;
@@ -657,7 +681,7 @@ public class NiceOptionsDialog extends org.eclipse.swt.widgets.Dialog {
 			CBupdateOnlyIfNewDataLData.grabExcessVerticalSpace = false;
 			CBupdateOnlyIfNewData.setLayoutData(CBupdateOnlyIfNewDataLData);
 			CBupdateOnlyIfNewData.setText("Don't store unchanged data");
-			GridLayout composite5Layout = new GridLayout(1, true);
+			final GridLayout composite5Layout = new GridLayout(1, true);
 			composite5.setLayout(composite5Layout);
 			composite5Layout.marginWidth = 5;
 			composite5Layout.marginHeight = 5;
@@ -666,8 +690,8 @@ public class NiceOptionsDialog extends org.eclipse.swt.widgets.Dialog {
 			composite5Layout.horizontalSpacing = 5;
 			composite5Layout.verticalSpacing = 5;
 			composite5.layout();
-	
-			GridData buttonCompositeLData = new GridData();
+
+			final GridData buttonCompositeLData = new GridData();
 			buttonCompositeLData.verticalAlignment = GridData.CENTER;
 			buttonCompositeLData.horizontalAlignment = GridData.FILL;
 			buttonCompositeLData.widthHint = -1;
@@ -678,8 +702,8 @@ public class NiceOptionsDialog extends org.eclipse.swt.widgets.Dialog {
 			buttonCompositeLData.grabExcessHorizontalSpace = true;
 			buttonCompositeLData.grabExcessVerticalSpace = false;
 			buttonComposite.setLayoutData(buttonCompositeLData);
-	
-			GridData label1LData = new GridData();
+
+			final GridData label1LData = new GridData();
 			label1LData.verticalAlignment = GridData.CENTER;
 			label1LData.horizontalAlignment = GridData.FILL;
 			label1LData.widthHint = -1;
@@ -691,8 +715,8 @@ public class NiceOptionsDialog extends org.eclipse.swt.widgets.Dialog {
 			label1LData.grabExcessVerticalSpace = false;
 			label1.setLayoutData(label1LData);
 			label1.setText(" ");
-	
-			GridData BokLData = new GridData();
+
+			final GridData BokLData = new GridData();
 			BokLData.verticalAlignment = GridData.CENTER;
 			BokLData.horizontalAlignment = GridData.END;
 			BokLData.widthHint = -1;
@@ -705,12 +729,13 @@ public class NiceOptionsDialog extends org.eclipse.swt.widgets.Dialog {
 			Bok.setLayoutData(BokLData);
 			Bok.setText("OK");
 			Bok.addSelectionListener( new SelectionAdapter() {
-				public void widgetSelected(SelectionEvent evt) {
+				@Override
+                public void widgetSelected(final SelectionEvent evt) {
 					BokWidgetSelected(evt);
 				}
 			});
-	
-			GridData BcancelLData = new GridData();
+
+			final GridData BcancelLData = new GridData();
 			BcancelLData.verticalAlignment = GridData.CENTER;
 			BcancelLData.horizontalAlignment = GridData.END;
 			BcancelLData.widthHint = -1;
@@ -723,11 +748,12 @@ public class NiceOptionsDialog extends org.eclipse.swt.widgets.Dialog {
 			Bcancel.setLayoutData(BcancelLData);
 			Bcancel.setText("Cancel");
 			Bcancel.addSelectionListener( new SelectionAdapter() {
-				public void widgetSelected(SelectionEvent evt) {
+				@Override
+                public void widgetSelected(final SelectionEvent evt) {
 					BcancelWidgetSelected(evt);
 				}
 			});
-			GridLayout buttonCompositeLayout = new GridLayout(3, true);
+			final GridLayout buttonCompositeLayout = new GridLayout(3, true);
 			buttonComposite.setLayout(buttonCompositeLayout);
 			buttonCompositeLayout.marginWidth = 5;
 			buttonCompositeLayout.marginHeight = 5;
@@ -736,7 +762,7 @@ public class NiceOptionsDialog extends org.eclipse.swt.widgets.Dialog {
 			buttonCompositeLayout.horizontalSpacing = 5;
 			buttonCompositeLayout.verticalSpacing = 5;
 			buttonComposite.layout();
-			GridLayout dialogShellLayout = new GridLayout(1, true);
+			final GridLayout dialogShellLayout = new GridLayout(1, true);
 			dialogShell.setLayout(dialogShellLayout);
 			dialogShellLayout.marginWidth = 5;
 			dialogShellLayout.marginHeight = 5;
@@ -745,16 +771,17 @@ public class NiceOptionsDialog extends org.eclipse.swt.widgets.Dialog {
 			dialogShellLayout.horizontalSpacing = 5;
 			dialogShellLayout.verticalSpacing = 5;
 			dialogShell.layout();
-			Rectangle bounds = dialogShell.computeTrim(0, 0, 450,400);
+			final Rectangle bounds = dialogShell.computeTrim(0, 0, 450,400);
 			dialogShell.setSize(bounds.width, bounds.height);
 			postInitGUI();
 			dialogShell.open();
-			Display display = dialogShell.getDisplay();
+			final Display display = dialogShell.getDisplay();
 			while (!dialogShell.isDisposed()) {
-				if (!display.readAndDispatch())
-					display.sleep();
+				if (!display.readAndDispatch()) {
+                    display.sleep();
+                }
 			}
-		} catch (Exception e) {
+		} catch (final Exception e) {
 			e.printStackTrace();
 		}
 	}
@@ -767,28 +794,28 @@ public class NiceOptionsDialog extends org.eclipse.swt.widgets.Dialog {
         loadValuesFromConfig();
         centerOnParent();
 	}
-    
+
     protected void centerOnParent() {
-        int loc_x = gui.getShell().getLocation().x + 25;
-        int loc_y = gui.getShell().getLocation().y + 25;
+        final int loc_x = gui.getShell().getLocation().x + 25;
+        final int loc_y = gui.getShell().getLocation().y + 25;
         dialogShell.setLocation(loc_x, loc_y);
     }
 
 	/** Auto-generated event handler method */
-	protected void BokWidgetSelected(SelectionEvent evt){
+	protected void BokWidgetSelected(final SelectionEvent evt){
         saveValuesToConfig();
         dialogShell.close();
         dialogShell.dispose();
 	}
 
 	/** Auto-generated event handler method */
-	protected void BcancelWidgetSelected(SelectionEvent evt){
+	protected void BcancelWidgetSelected(final SelectionEvent evt){
         dialogShell.close();
         dialogShell.dispose();
 	}
 
 	/** Auto-generated event handler method */
-	protected void RBdirectWidgetSelected(SelectionEvent evt){
+	protected void RBdirectWidgetSelected(final SelectionEvent evt){
 		TproxyServer.setEnabled(false);
         TproxyPort.setEnabled(false);
         TsocksServer.setEnabled(false);
@@ -796,7 +823,7 @@ public class NiceOptionsDialog extends org.eclipse.swt.widgets.Dialog {
 	}
 
 	/** Auto-generated event handler method */
-	protected void RBproxyWidgetSelected(SelectionEvent evt){
+	protected void RBproxyWidgetSelected(final SelectionEvent evt){
         TproxyServer.setEnabled(true);
         TproxyPort.setEnabled(true);
         TsocksServer.setEnabled(false);
@@ -804,7 +831,7 @@ public class NiceOptionsDialog extends org.eclipse.swt.widgets.Dialog {
 	}
 
 	/** Auto-generated event handler method */
-	protected void RBsocksWidgetSelected(SelectionEvent evt){
+	protected void RBsocksWidgetSelected(final SelectionEvent evt){
         TproxyServer.setEnabled(false);
         TproxyPort.setEnabled(false);
         TsocksServer.setEnabled(true);
@@ -812,31 +839,31 @@ public class NiceOptionsDialog extends org.eclipse.swt.widgets.Dialog {
 	}
 
 	/** Auto-generated event handler method */
-	protected void RBupdateDBmanualWidgetSelected(SelectionEvent evt){
+	protected void RBupdateDBmanualWidgetSelected(final SelectionEvent evt){
         TupdateDBinterval.setEnabled(false);
 	}
 
 	/** Auto-generated event handler method */
-	protected void RBupdateDBautoWidgetSelected(SelectionEvent evt){
+	protected void RBupdateDBautoWidgetSelected(final SelectionEvent evt){
         TupdateDBinterval.setEnabled(true);
 	}
 
 	/** Auto-generated event handler method */
-	protected void RBupdateWebManualWidgetSelected(SelectionEvent evt){
+	protected void RBupdateWebManualWidgetSelected(final SelectionEvent evt){
 		TupdateWebInterval.setEnabled(false);
 	}
 
 	/** Auto-generated event handler method */
-	protected void RBupdateWebAutoWidgetSelected(SelectionEvent evt){
+	protected void RBupdateWebAutoWidgetSelected(final SelectionEvent evt){
         TupdateWebInterval.setEnabled(true);
 	}
-    
+
     protected void loadValuesFromConfig() {
-        Config c = this.origConfig;
+        final Config c = this.origConfig;
         Taccountid.setText( c.getStrProperty("accountid") );
-        
+
         CBupdateOnlyIfNewData.setSelection(c.getBooleanProperty("update_dont_store_unchanged_data"));
-        
+
         if( c.getBooleanProperty("auto_db_update_enabled") ) {
             RBupdateDBauto.setSelection(true);
             RBupdateDBautoWidgetSelected(null);
@@ -858,55 +885,55 @@ public class NiceOptionsDialog extends org.eclipse.swt.widgets.Dialog {
 
         if( c.getBooleanProperty("connection_use_proxy") ) {
             RBproxy.setSelection(true);
-            RBproxyWidgetSelected(null);        
+            RBproxyWidgetSelected(null);
         } else if( c.getBooleanProperty("connection_use_socks") ) {
-            RBsocks.setSelection(true);        
-            RBsocksWidgetSelected(null);        
+            RBsocks.setSelection(true);
+            RBsocksWidgetSelected(null);
         } else {
             RBdirect.setSelection(true);
-            RBdirectWidgetSelected(null);        
+            RBdirectWidgetSelected(null);
         }
         TproxyServer.setText( c.getStrProperty("connection_proxy_server") );
         TproxyPort.setText( ""+c.getIntProperty("connection_proxy_port") );
         TsocksServer.setText( c.getStrProperty("connection_socks_server") );
         TsocksPort.setText( ""+c.getIntProperty("connection_socks_port") );
     }
-    
+
     protected void saveValuesToConfig() {
-        Config c = this.origConfig;
+        final Config c = this.origConfig;
         c.setProperty("accountid", Taccountid.getText());
 
         c.setProperty("update_dont_store_unchanged_data", ""+CBupdateOnlyIfNewData.getSelection());
 
         c.setProperty("auto_db_update_enabled", ""+RBupdateDBauto.getSelection());
         c.setProperty("auto_db_update_minutes", TupdateDBinterval.getText());
-        c.setProperty("auto_db_update_delete_updatedb_entries", ""+CBdeleteAfterUpdImport.getSelection());        
+        c.setProperty("auto_db_update_delete_updatedb_entries", ""+CBdeleteAfterUpdImport.getSelection());
 
         c.setProperty("auto_web_update_enabled", ""+RBupdateWebAuto.getSelection());
         c.setProperty("auto_web_update_minutes", TupdateWebInterval.getText());
-        
+
         if( RBdirect.getSelection() ) {
-            c.setProperty("connection_use_proxy", ""+false);        
-            c.setProperty("connection_use_socks", ""+false);        
+            c.setProperty("connection_use_proxy", ""+false);
+            c.setProperty("connection_use_socks", ""+false);
         } else if( RBproxy.getSelection() ) {
-            c.setProperty("connection_use_proxy", ""+true);        
+            c.setProperty("connection_use_proxy", ""+true);
             c.setProperty("connection_use_socks", ""+false);
         } else if( RBsocks.getSelection() ) {
-            c.setProperty("connection_use_proxy", ""+false);        
+            c.setProperty("connection_use_proxy", ""+false);
             c.setProperty("connection_use_socks", ""+true);
         }
-        c.setProperty("connection_socks_server", TsocksServer.getText());        
-        c.setProperty("connection_socks_port", TsocksPort.getText());        
-        c.setProperty("connection_proxy_server", TproxyServer.getText());        
+        c.setProperty("connection_socks_server", TsocksServer.getText());
+        c.setProperty("connection_socks_port", TsocksPort.getText());
+        c.setProperty("connection_proxy_server", TproxyServer.getText());
         c.setProperty("connection_proxy_port", TproxyPort.getText());
-        
+
         if( c.saveConfig() ) {
             BoincNetStats.out("Options saved.");
         } else {
             BoincNetStats.out("Error saving options!");
         }
-        
-        // update running parts        
+
+        // update running parts
         c.setProxiesFromConfig();
         gui.setupTimers();
     }

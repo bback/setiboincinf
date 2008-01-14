@@ -1,8 +1,25 @@
+/*
+  Copyright (C) 2008  SetiBoincInf Project
+
+  This program is free software; you can redistribute it and/or
+  modify it under the terms of the GNU General Public License as
+  published by the Free Software Foundation; either version 2 of
+  the License, or (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+  General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program; if not, write to the Free Software
+  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+*/
 package boincinf.clientstate;
 
-import org.w3c.dom.Element;
+import org.w3c.dom.*;
 
-import boincinf.util.XmlTools;
+import boincinf.util.*;
 
 /*
 <result>
@@ -21,7 +38,7 @@ import boincinf.util.XmlTools;
 public class Result
 {
 	// result states:
-	
+
 	// New result, files may still need to be downloaded
 	public final static int RESULT_NEW               = 0;
 	// Input files for result are being downloaded
@@ -32,9 +49,9 @@ public class Result
 	public final static int RESULT_COMPUTE_DONE      = 3;
 	// Output files for result are being uploaded
 	public final static int RESULT_FILES_UPLOADING   = 4;
-	// Files are uploaded, notify scheduling server	
+	// Files are uploaded, notify scheduling server
 	public final static int RESULT_FILES_UPLOADED    = 5;
-	
+
     String name;
     String wu_name;
 
@@ -43,21 +60,21 @@ public class Result
 
 	int state;
 	int exit_status;
-	
+
 	ActiveTask activeTask = null; // set if this result is currently computed
 	WorkUnit work_unit = null;
-    
+
     // state: 2 = todo / work ; 5 = ready to report
-    
-    public boolean initialize(Element ele)
+
+    public boolean initialize(final Element ele)
     {
         // = XmlTools.getValidText(ele, "");
         name = XmlTools.getValidText(ele, "name");
-        String str_final_cpu_time = XmlTools.getValidText(ele, "final_cpu_time");
-		String str_exit_status = XmlTools.getValidText(ele, "exit_status");
-		String str_state = XmlTools.getValidText(ele, "state");
+        final String str_final_cpu_time = XmlTools.getValidText(ele, "final_cpu_time");
+		final String str_exit_status = XmlTools.getValidText(ele, "exit_status");
+		final String str_state = XmlTools.getValidText(ele, "state");
         wu_name = XmlTools.getValidText(ele, "wu_name");
-		String str_report_deadline = XmlTools.getValidText(ele, "report_deadline");
+		final String str_report_deadline = XmlTools.getValidText(ele, "report_deadline");
 
 		final_cpu_time = (long)Double.parseDouble(str_final_cpu_time);
 		report_deadline = Long.parseLong(str_report_deadline);
@@ -67,12 +84,12 @@ public class Result
 
         return true;
     }
-    
-    public static String getStateString(int state)
+
+    public static String getStateString(final int state)
     {
 		if( state == RESULT_NEW )
 		{
-			return "New work";              
+			return "New work";
 		}
 		if( state == RESULT_FILES_DOWNLOADING )
 		{
@@ -85,7 +102,7 @@ public class Result
 		if( state == RESULT_COMPUTE_DONE )
 		{
 			return "Ready to report";
-		}   
+		}
 		if( state == RESULT_FILES_UPLOADING )
 		{
 			return "Uploading";

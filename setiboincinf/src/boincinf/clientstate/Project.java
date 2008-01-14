@@ -1,8 +1,25 @@
+/*
+  Copyright (C) 2008  SetiBoincInf Project
+
+  This program is free software; you can redistribute it and/or
+  modify it under the terms of the GNU General Public License as
+  published by the Free Software Foundation; either version 2 of
+  the License, or (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+  General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program; if not, write to the Free Software
+  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+*/
 package boincinf.clientstate;
 
-import org.w3c.dom.Element;
+import org.w3c.dom.*;
 
-import boincinf.util.XmlTools;
+import boincinf.util.*;
 
 /*
 <project>
@@ -42,20 +59,20 @@ public class Project
     String host_total_credit;
     String host_expavg_credit;
     String host_create_time;
-    
+
 	double user_total_credit;
 	double user_expavg_credit;
 	long user_create_time;
 	long rpc_seqno;
 	long hostid;
-    
+
 	double exp_avg_cpu;
 	double exp_avg_mod_time;
     long nrpc_failures;
     long master_fetch_failures;
     long min_rpc_time;
-    
-    public boolean initialize(Element ele)
+
+    public boolean initialize(final Element ele)
     {
         scheduler_url = XmlTools.getValidText(ele, "scheduler_url");
         master_url = XmlTools.getValidText(ele, "master_url");
@@ -64,33 +81,33 @@ public class Project
         team_name = XmlTools.getValidText(ele, "team_name");
         email_hash = XmlTools.getValidText(ele, "email_hash");
         cross_project_id = XmlTools.getValidText(ele, "cross_project_id");
-        String str_user_total_credit = XmlTools.getValidText(ele, "user_total_credit");
-		String str_user_expavg_credit = XmlTools.getValidText(ele, "user_expavg_credit");
-		String str_user_create_time = XmlTools.getValidText(ele, "user_create_time");
-		String str_rpc_seqno = XmlTools.getValidText(ele, "rpc_seqno");
-		String str_hostid = XmlTools.getValidText(ele, "hostid");
+        final String str_user_total_credit = XmlTools.getValidText(ele, "user_total_credit");
+		final String str_user_expavg_credit = XmlTools.getValidText(ele, "user_expavg_credit");
+		final String str_user_create_time = XmlTools.getValidText(ele, "user_create_time");
+		final String str_rpc_seqno = XmlTools.getValidText(ele, "rpc_seqno");
+		final String str_hostid = XmlTools.getValidText(ele, "hostid");
         host_total_credit = XmlTools.getValidText(ele, "host_total_credit");
         host_expavg_credit = XmlTools.getValidText(ele, "host_expavg_credit");
         host_create_time = XmlTools.getValidText(ele, "host_create_time");
-		String str_exp_avg_cpu = XmlTools.getValidText(ele, "exp_avg_cpu");
-		String str_exp_avg_mod_time = XmlTools.getValidText(ele, "exp_avg_mod_time");
-		String str_nrpc_failures = XmlTools.getValidText(ele, "nrpc_failures");
-		String str_master_fetch_failures = XmlTools.getValidText(ele, "master_fetch_failures");
-		String str_min_rpc_time = XmlTools.getValidText(ele, "min_rpc_time");
-		
+		final String str_exp_avg_cpu = XmlTools.getValidText(ele, "exp_avg_cpu");
+		final String str_exp_avg_mod_time = XmlTools.getValidText(ele, "exp_avg_mod_time");
+		final String str_nrpc_failures = XmlTools.getValidText(ele, "nrpc_failures");
+		final String str_master_fetch_failures = XmlTools.getValidText(ele, "master_fetch_failures");
+		final String str_min_rpc_time = XmlTools.getValidText(ele, "min_rpc_time");
+
 		user_total_credit = Double.parseDouble(str_user_total_credit);
 		user_expavg_credit = Double.parseDouble(str_user_expavg_credit);
 		user_create_time = Long.parseLong(str_user_create_time);
 		rpc_seqno = Long.parseLong( str_rpc_seqno );
 		hostid = Long.parseLong( str_hostid );
-    
+
 		exp_avg_cpu = Double.parseDouble(str_exp_avg_cpu);
 		exp_avg_mod_time = Double.parseDouble(str_exp_avg_mod_time);
 		nrpc_failures = Long.parseLong( str_nrpc_failures );
 		master_fetch_failures = Long.parseLong( str_master_fetch_failures );
 		min_rpc_time = Long.parseLong( str_min_rpc_time );
-        
+
         return true;
     }
-    
+
 }

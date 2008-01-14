@@ -1,14 +1,31 @@
+/*
+  Copyright (C) 2008  SetiBoincInf Project
+
+  This program is free software; you can redistribute it and/or
+  modify it under the terms of the GNU General Public License as
+  published by the Free Software Foundation; either version 2 of
+  the License, or (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+  General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program; if not, write to the Free Software
+  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+*/
 package boincinf.gui;
 
 import java.text.*;
 
 import org.eclipse.jface.viewers.*;
-import org.eclipse.swt.SWT;
-import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.*;
+import org.eclipse.swt.graphics.*;
 import org.eclipse.swt.widgets.*;
 
-import boincinf.BoincNetStats;
-import boincinf.netstat.SingleHostStat;
+import boincinf.*;
+import boincinf.netstat.*;
 
 public class SingleHostTableLabelProvider implements ITableLabelProvider {
     NumberFormat df_float;
@@ -19,14 +36,15 @@ public class SingleHostTableLabelProvider implements ITableLabelProvider {
         df_float.setMinimumFractionDigits(2);
     }
 
-    public String getColumnText(Object element, int column_index) {
-        if (element == null)
+    public String getColumnText(final Object element, final int column_index) {
+        if (element == null) {
             return "err";
-        SingleHostStat shs = (SingleHostStat)element;
+        }
+        final SingleHostStat shs = (SingleHostStat)element;
         return shs.getValueAt(column_index);
     }
 
-    public void buildTableColumns(Table t) {
+    public void buildTableColumns(final Table t) {
         TableColumn column;
         int w;
         column = new TableColumn(t, SWT.RIGHT);
@@ -106,9 +124,9 @@ public class SingleHostTableLabelProvider implements ITableLabelProvider {
             column.setWidth(310);
         }
     }
-    
-    public void saveStateToConfig(Table t) {
-        TableColumn[] tc = t.getColumns();
+
+    public void saveStateToConfig(final Table t) {
+        final TableColumn[] tc = t.getColumns();
         BoincNetStats.getCfg().setProperty("guistate_singlehoststatstable_colwidth_0", ""+tc[0].getWidth());
         BoincNetStats.getCfg().setProperty("guistate_singlehoststatstable_colwidth_1", ""+tc[1].getWidth());
         BoincNetStats.getCfg().setProperty("guistate_singlehoststatstable_colwidth_2", ""+tc[2].getWidth());
@@ -118,17 +136,17 @@ public class SingleHostTableLabelProvider implements ITableLabelProvider {
         BoincNetStats.getCfg().setProperty("guistate_singlehoststatstable_colwidth_6", ""+tc[6].getWidth());
     }
 
-    public void addListener(ILabelProviderListener ilabelproviderlistener) {}
+    public void addListener(final ILabelProviderListener ilabelproviderlistener) {}
 
     public void dispose() {}
 
-    public boolean isLabelProperty(Object obj, String s) {
+    public boolean isLabelProperty(final Object obj, final String s) {
         return false;
     }
 
-    public void removeListener(ILabelProviderListener ilabelproviderlistener) {}
+    public void removeListener(final ILabelProviderListener ilabelproviderlistener) {}
 
-    public Image getColumnImage(Object element, int column_index) {
+    public Image getColumnImage(final Object element, final int column_index) {
         if( column_index != 0 ) {
             return null;
         }

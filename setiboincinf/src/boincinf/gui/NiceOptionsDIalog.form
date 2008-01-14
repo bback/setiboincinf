@@ -1,0 +1,1071 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Form style="SWT" ide="eclipse" builder="jigloo" version="2.7.2">
+<NonVisualComponents>
+		<Component class="java.lang.Object" name="object1" style="0">
+			<Constraints>
+				<LayoutConstraint/>
+			</Constraints>
+			<Properties>
+			</Properties>
+		</Component></NonVisualComponents>
+	<Component class="org.eclipse.swt.widgets.Dialog" name="NiceOptionsDIalog" style="0">
+		<Constraints>
+			<LayoutConstraint/>
+		</Constraints>
+		<Layout class="Grid">
+			<Property name="marginWidth" type="int" value="5"/>
+			<Property name="marginHeight" type="int" value="5"/>
+			<Property name="numColumns" type="int" value="1"/>
+			<Property name="makeColumnsEqualWidth" type="boolean" value="true"/>
+			<Property name="horizontalSpacing" type="int" value="5"/>
+			<Property name="verticalSpacing" type="int" value="5"/>
+		</Layout>
+		<Properties>
+			<Property name="text" type="String" value="Options"/>
+			<Property name="size" type="Dimension">
+				<Dimension value="[450, 400]"/>
+			</Property>
+		</Properties>
+		<SubComponents>
+			<Component class="org.eclipse.swt.widgets.TabFolder" name="tabFolder" style="0">
+				<Constraints>
+					<Constraint class="org.eclipse.swt.layout.GridData"/>
+					<LayoutConstraint class="org.eclipse.swt.layout.GridData">
+						<Property name="verticalAlignment" type="int" value="4"/>
+						<Property name="horizontalAlignment" type="int" value="4"/>
+						<Property name="widthHint" type="int" value="-1"/>
+						<Property name="heightHint" type="int" value="-1"/>
+						<Property name="horizontalIndent" type="int" value="0"/>
+						<Property name="horizontalSpan" type="int" value="1"/>
+						<Property name="verticalSpan" type="int" value="1"/>
+						<Property name="grabExcessHorizontalSpace" type="boolean" value="true"/>
+						<Property name="grabExcessVerticalSpace" type="boolean" value="true"/>
+					</LayoutConstraint>
+				</Constraints>
+				<Events>
+				</Events>
+				<Properties>
+					<Property name="size" type="Dimension">
+						<Dimension value="[440, 351]"/>
+					</Property>
+					<Property name="bounds" type="Rectangle">
+						<Rectangle value="[5, 5, 440, 351]"/>
+					</Property>
+				</Properties>
+				<SubComponents>
+					<Component class="org.eclipse.swt.widgets.TabItem" name="accountTabItem" style="0">
+						<Constraints>
+							<LayoutConstraint/>
+						</Constraints>
+						<Events>
+						</Events>
+						<Properties>
+							<Property name="text" type="String" value="Account"/>
+						</Properties>
+						<SubComponents>
+							<Component class="org.eclipse.swt.widgets.Composite" name="composite1" style="0">
+								<Constraints>
+									<LayoutConstraint/>
+								</Constraints>
+								<Layout class="Grid">
+									<Property name="marginWidth" type="int" value="10"/>
+									<Property name="marginHeight" type="int" value="10"/>
+									<Property name="numColumns" type="int" value="2"/>
+									<Property name="makeColumnsEqualWidth" type="boolean" value="false"/>
+									<Property name="horizontalSpacing" type="int" value="15"/>
+									<Property name="verticalSpacing" type="int" value="5"/>
+								</Layout>
+								<Events>
+								</Events>
+								<Properties>
+								</Properties>
+								<SubComponents>
+									<Component class="org.eclipse.swt.widgets.Label" name="label2" style="0">
+										<Constraints>
+											<Constraint class="org.eclipse.swt.layout.GridData"/>
+											<LayoutConstraint class="org.eclipse.swt.layout.GridData">
+												<Property name="verticalAlignment" type="int" value="2"/>
+												<Property name="horizontalAlignment" type="int" value="1"/>
+												<Property name="widthHint" type="int" value="-1"/>
+												<Property name="heightHint" type="int" value="-1"/>
+												<Property name="horizontalIndent" type="int" value="0"/>
+												<Property name="horizontalSpan" type="int" value="1"/>
+												<Property name="verticalSpan" type="int" value="1"/>
+												<Property name="grabExcessHorizontalSpace" type="boolean" value="false"/>
+												<Property name="grabExcessVerticalSpace" type="boolean" value="false"/>
+											</LayoutConstraint>
+										</Constraints>
+										<Events>
+										</Events>
+										<Properties>
+											<Property name="text" type="String" value="Account ID"/>
+											<Property name="bounds" type="Rectangle">
+												<Rectangle value="[10, 13, 62, 14]"/>
+											</Property>
+										</Properties>
+									</Component>
+									<Component class="org.eclipse.swt.widgets.Text" name="Taccountid" style="2048">
+										<Constraints>
+											<Constraint class="org.eclipse.swt.layout.GridData"/>
+											<LayoutConstraint class="org.eclipse.swt.layout.GridData">
+												<Property name="verticalAlignment" type="int" value="2"/>
+												<Property name="horizontalAlignment" type="int" value="1"/>
+												<Property name="widthHint" type="int" value="225"/>
+												<Property name="heightHint" type="int" value="-1"/>
+												<Property name="horizontalIndent" type="int" value="0"/>
+												<Property name="horizontalSpan" type="int" value="1"/>
+												<Property name="verticalSpan" type="int" value="1"/>
+												<Property name="grabExcessHorizontalSpace" type="boolean" value="false"/>
+												<Property name="grabExcessVerticalSpace" type="boolean" value="false"/>
+											</LayoutConstraint>
+										</Constraints>
+										<Events>
+										</Events>
+										<Properties>
+											<Property name="bounds" type="Rectangle">
+												<Rectangle value="[87, 10, 238, 21]"/>
+											</Property>
+										</Properties>
+									</Component>
+								</SubComponents>
+							</Component>
+						</SubComponents>
+					</Component>
+					<Component class="org.eclipse.swt.widgets.TabItem" name="connectionTabItem" style="0">
+						<Constraints>
+							<LayoutConstraint/>
+						</Constraints>
+						<Events>
+						</Events>
+						<Properties>
+							<Property name="text" type="String" value="Connection"/>
+						</Properties>
+						<SubComponents>
+							<Component class="org.eclipse.swt.widgets.Composite" name="composite2" style="0">
+								<Constraints>
+									<LayoutConstraint/>
+								</Constraints>
+								<Layout class="Grid">
+									<Property name="marginWidth" type="int" value="5"/>
+									<Property name="marginHeight" type="int" value="5"/>
+									<Property name="numColumns" type="int" value="1"/>
+									<Property name="makeColumnsEqualWidth" type="boolean" value="false"/>
+									<Property name="horizontalSpacing" type="int" value="5"/>
+									<Property name="verticalSpacing" type="int" value="5"/>
+								</Layout>
+								<Events>
+								</Events>
+								<Properties>
+								</Properties>
+								<SubComponents>
+									<Component class="org.eclipse.swt.widgets.Group" name="group1" style="0">
+										<Constraints>
+											<Constraint class="org.eclipse.swt.layout.GridData"/>
+											<LayoutConstraint class="org.eclipse.swt.layout.GridData">
+												<Property name="verticalAlignment" type="int" value="4"/>
+												<Property name="horizontalAlignment" type="int" value="4"/>
+												<Property name="widthHint" type="int" value="-1"/>
+												<Property name="heightHint" type="int" value="-1"/>
+												<Property name="horizontalIndent" type="int" value="0"/>
+												<Property name="horizontalSpan" type="int" value="1"/>
+												<Property name="verticalSpan" type="int" value="1"/>
+												<Property name="grabExcessHorizontalSpace" type="boolean" value="true"/>
+												<Property name="grabExcessVerticalSpace" type="boolean" value="true"/>
+											</LayoutConstraint>
+										</Constraints>
+										<Layout class="Grid">
+											<Property name="marginWidth" type="int" value="5"/>
+											<Property name="marginHeight" type="int" value="5"/>
+											<Property name="numColumns" type="int" value="1"/>
+											<Property name="makeColumnsEqualWidth" type="boolean" value="true"/>
+											<Property name="horizontalSpacing" type="int" value="5"/>
+											<Property name="verticalSpacing" type="int" value="5"/>
+										</Layout>
+										<Events>
+										</Events>
+										<Properties>
+											<Property name="text" type="String" value="Connection"/>
+											<Property name="bounds" type="Rectangle">
+												<Rectangle value="[5, 5, 422, 353]"/>
+											</Property>
+											<Property name="visible" type="boolean" value="true"/>
+										</Properties>
+										<SubComponents>
+											<Component class="org.eclipse.swt.widgets.Button" name="RBdirect" style="16400">
+												<Constraints>
+													<Constraint class="org.eclipse.swt.layout.GridData"/>
+													<LayoutConstraint class="org.eclipse.swt.layout.GridData">
+														<Property name="verticalAlignment" type="int" value="2"/>
+														<Property name="horizontalAlignment" type="int" value="1"/>
+														<Property name="widthHint" type="int" value="118"/>
+														<Property name="heightHint" type="int" value="16"/>
+														<Property name="horizontalIndent" type="int" value="0"/>
+														<Property name="horizontalSpan" type="int" value="2"/>
+														<Property name="verticalSpan" type="int" value="1"/>
+														<Property name="grabExcessHorizontalSpace" type="boolean" value="false"/>
+														<Property name="grabExcessVerticalSpace" type="boolean" value="false"/>
+													</LayoutConstraint>
+												</Constraints>
+												<Events>
+													<EventHandler event="widgetSelected" listener="org.eclipse.swt.events.SelectionListener" handler="RBdirectWidgetSelected"/>
+												</Events>
+												<Properties>
+													<Property name="text" type="String" value="Direct connection"/>
+													<Property name="size" type="Dimension">
+														<Dimension value="[118, 16]"/>
+													</Property>
+													<Property name="bounds" type="Rectangle">
+														<Rectangle value="[8, 19, 118, 16]"/>
+													</Property>
+													<Property name="visible" type="boolean" value="true"/>
+												</Properties>
+											</Component>
+											<Component class="org.eclipse.swt.widgets.Button" name="RBproxy" style="16400">
+												<Constraints>
+													<Constraint class="org.eclipse.swt.layout.GridData"/>
+													<LayoutConstraint class="org.eclipse.swt.layout.GridData">
+														<Property name="verticalAlignment" type="int" value="2"/>
+														<Property name="horizontalAlignment" type="int" value="1"/>
+														<Property name="widthHint" type="int" value="112"/>
+														<Property name="heightHint" type="int" value="16"/>
+														<Property name="horizontalIndent" type="int" value="0"/>
+														<Property name="horizontalSpan" type="int" value="1"/>
+														<Property name="verticalSpan" type="int" value="1"/>
+														<Property name="grabExcessHorizontalSpace" type="boolean" value="false"/>
+														<Property name="grabExcessVerticalSpace" type="boolean" value="false"/>
+													</LayoutConstraint>
+												</Constraints>
+												<Events>
+													<EventHandler event="widgetSelected" listener="org.eclipse.swt.events.SelectionListener" handler="RBproxyWidgetSelected"/>
+												</Events>
+												<Properties>
+													<Property name="text" type="String" value="Use proxy server"/>
+													<Property name="size" type="Dimension">
+														<Dimension value="[112, 16]"/>
+													</Property>
+													<Property name="bounds" type="Rectangle">
+														<Rectangle value="[8, 40, 112, 16]"/>
+													</Property>
+												</Properties>
+											</Component>
+											<Component class="org.eclipse.swt.widgets.Composite" name="composite3" style="0">
+												<Constraints>
+													<Constraint class="org.eclipse.swt.layout.GridData"/>
+													<LayoutConstraint class="org.eclipse.swt.layout.GridData">
+														<Property name="verticalAlignment" type="int" value="2"/>
+														<Property name="horizontalAlignment" type="int" value="1"/>
+														<Property name="widthHint" type="int" value="-1"/>
+														<Property name="heightHint" type="int" value="-1"/>
+														<Property name="horizontalIndent" type="int" value="0"/>
+														<Property name="horizontalSpan" type="int" value="1"/>
+														<Property name="verticalSpan" type="int" value="1"/>
+														<Property name="grabExcessHorizontalSpace" type="boolean" value="false"/>
+														<Property name="grabExcessVerticalSpace" type="boolean" value="false"/>
+													</LayoutConstraint>
+												</Constraints>
+												<Layout class="Grid">
+													<Property name="marginWidth" type="int" value="15"/>
+													<Property name="marginHeight" type="int" value="5"/>
+													<Property name="numColumns" type="int" value="2"/>
+													<Property name="makeColumnsEqualWidth" type="boolean" value="false"/>
+													<Property name="horizontalSpacing" type="int" value="15"/>
+													<Property name="verticalSpacing" type="int" value="7"/>
+												</Layout>
+												<Events>
+												</Events>
+												<Properties>
+													<Property name="bounds" type="Rectangle">
+														<Rectangle value="[8, 61, 300, 59]"/>
+													</Property>
+													<Property name="visible" type="boolean" value="true"/>
+												</Properties>
+												<SubComponents>
+													<Component class="org.eclipse.swt.widgets.Label" name="label3" style="0">
+														<Constraints>
+															<Constraint class="org.eclipse.swt.layout.GridData"/>
+															<LayoutConstraint class="org.eclipse.swt.layout.GridData">
+																<Property name="verticalAlignment" type="int" value="2"/>
+																<Property name="horizontalAlignment" type="int" value="1"/>
+																<Property name="widthHint" type="int" value="-1"/>
+																<Property name="heightHint" type="int" value="-1"/>
+																<Property name="horizontalIndent" type="int" value="0"/>
+																<Property name="horizontalSpan" type="int" value="1"/>
+																<Property name="verticalSpan" type="int" value="1"/>
+																<Property name="grabExcessHorizontalSpace" type="boolean" value="false"/>
+																<Property name="grabExcessVerticalSpace" type="boolean" value="false"/>
+															</LayoutConstraint>
+														</Constraints>
+														<Events>
+														</Events>
+														<Properties>
+															<Property name="text" type="String" value="Proxy server"/>
+															<Property name="bounds" type="Rectangle">
+																<Rectangle value="[15, 8, 67, 14]"/>
+															</Property>
+														</Properties>
+													</Component>
+													<Component class="org.eclipse.swt.widgets.Text" name="TproxyServer" style="2048">
+														<Constraints>
+															<Constraint class="org.eclipse.swt.layout.GridData"/>
+															<LayoutConstraint class="org.eclipse.swt.layout.GridData">
+																<Property name="verticalAlignment" type="int" value="2"/>
+																<Property name="horizontalAlignment" type="int" value="1"/>
+																<Property name="widthHint" type="int" value="175"/>
+																<Property name="heightHint" type="int" value="-1"/>
+																<Property name="horizontalIndent" type="int" value="0"/>
+																<Property name="horizontalSpan" type="int" value="1"/>
+																<Property name="verticalSpan" type="int" value="1"/>
+																<Property name="grabExcessHorizontalSpace" type="boolean" value="false"/>
+																<Property name="grabExcessVerticalSpace" type="boolean" value="false"/>
+															</LayoutConstraint>
+														</Constraints>
+														<Events>
+														</Events>
+														<Properties>
+															<Property name="text" type="String" value="text1"/>
+															<Property name="bounds" type="Rectangle">
+																<Rectangle value="[97, 5, 188, 21]"/>
+															</Property>
+														</Properties>
+													</Component>
+													<Component class="org.eclipse.swt.widgets.Label" name="label4" style="0">
+														<Constraints>
+															<Constraint class="org.eclipse.swt.layout.GridData"/>
+															<LayoutConstraint class="org.eclipse.swt.layout.GridData">
+																<Property name="verticalAlignment" type="int" value="2"/>
+																<Property name="horizontalAlignment" type="int" value="1"/>
+																<Property name="widthHint" type="int" value="-1"/>
+																<Property name="heightHint" type="int" value="-1"/>
+																<Property name="horizontalIndent" type="int" value="0"/>
+																<Property name="horizontalSpan" type="int" value="1"/>
+																<Property name="verticalSpan" type="int" value="1"/>
+																<Property name="grabExcessHorizontalSpace" type="boolean" value="false"/>
+																<Property name="grabExcessVerticalSpace" type="boolean" value="false"/>
+															</LayoutConstraint>
+														</Constraints>
+														<Events>
+														</Events>
+														<Properties>
+															<Property name="text" type="String" value="Proxy port"/>
+															<Property name="bounds" type="Rectangle">
+																<Rectangle value="[15, 36, 57, 14]"/>
+															</Property>
+														</Properties>
+													</Component>
+													<Component class="org.eclipse.swt.widgets.Text" name="TproxyPort" style="2048">
+														<Constraints>
+															<Constraint class="org.eclipse.swt.layout.GridData"/>
+															<LayoutConstraint class="org.eclipse.swt.layout.GridData">
+																<Property name="verticalAlignment" type="int" value="2"/>
+																<Property name="horizontalAlignment" type="int" value="1"/>
+																<Property name="widthHint" type="int" value="175"/>
+																<Property name="heightHint" type="int" value="-1"/>
+																<Property name="horizontalIndent" type="int" value="0"/>
+																<Property name="horizontalSpan" type="int" value="1"/>
+																<Property name="verticalSpan" type="int" value="1"/>
+																<Property name="grabExcessHorizontalSpace" type="boolean" value="false"/>
+																<Property name="grabExcessVerticalSpace" type="boolean" value="false"/>
+															</LayoutConstraint>
+														</Constraints>
+														<Events>
+														</Events>
+														<Properties>
+															<Property name="text" type="String" value="pport"/>
+															<Property name="bounds" type="Rectangle">
+																<Rectangle value="[97, 33, 188, 21]"/>
+															</Property>
+														</Properties>
+													</Component>
+												</SubComponents>
+											</Component>
+											<Component class="org.eclipse.swt.widgets.Button" name="RBsocks" style="16400">
+												<Constraints>
+													<Constraint class="org.eclipse.swt.layout.GridData"/>
+													<LayoutConstraint class="org.eclipse.swt.layout.GridData">
+														<Property name="verticalAlignment" type="int" value="2"/>
+														<Property name="horizontalAlignment" type="int" value="1"/>
+														<Property name="widthHint" type="int" value="-1"/>
+														<Property name="heightHint" type="int" value="-1"/>
+														<Property name="horizontalIndent" type="int" value="0"/>
+														<Property name="horizontalSpan" type="int" value="1"/>
+														<Property name="verticalSpan" type="int" value="1"/>
+														<Property name="grabExcessHorizontalSpace" type="boolean" value="false"/>
+														<Property name="grabExcessVerticalSpace" type="boolean" value="false"/>
+													</LayoutConstraint>
+												</Constraints>
+												<Events>
+													<EventHandler event="widgetSelected" listener="org.eclipse.swt.events.SelectionListener" handler="RBsocksWidgetSelected"/>
+												</Events>
+												<Properties>
+													<Property name="text" type="String" value="Use socks server"/>
+													<Property name="bounds" type="Rectangle">
+														<Rectangle value="[8, 125, 111, 16]"/>
+													</Property>
+												</Properties>
+											</Component>
+											<Component class="org.eclipse.swt.widgets.Composite" name="composite4" style="0">
+												<Constraints>
+													<Constraint class="org.eclipse.swt.layout.GridData"/>
+													<LayoutConstraint class="org.eclipse.swt.layout.GridData">
+														<Property name="verticalAlignment" type="int" value="2"/>
+														<Property name="horizontalAlignment" type="int" value="1"/>
+														<Property name="widthHint" type="int" value="-1"/>
+														<Property name="heightHint" type="int" value="-1"/>
+														<Property name="horizontalIndent" type="int" value="0"/>
+														<Property name="horizontalSpan" type="int" value="1"/>
+														<Property name="verticalSpan" type="int" value="1"/>
+														<Property name="grabExcessHorizontalSpace" type="boolean" value="false"/>
+														<Property name="grabExcessVerticalSpace" type="boolean" value="false"/>
+													</LayoutConstraint>
+												</Constraints>
+												<Layout class="Grid">
+													<Property name="marginWidth" type="int" value="15"/>
+													<Property name="marginHeight" type="int" value="5"/>
+													<Property name="numColumns" type="int" value="2"/>
+													<Property name="makeColumnsEqualWidth" type="boolean" value="false"/>
+													<Property name="horizontalSpacing" type="int" value="15"/>
+													<Property name="verticalSpacing" type="int" value="7"/>
+												</Layout>
+												<Events>
+												</Events>
+												<Properties>
+													<Property name="bounds" type="Rectangle">
+														<Rectangle value="[8, 146, 301, 59]"/>
+													</Property>
+												</Properties>
+												<SubComponents>
+													<Component class="org.eclipse.swt.widgets.Label" name="label5" style="0">
+														<Constraints>
+															<Constraint class="org.eclipse.swt.layout.GridData"/>
+															<LayoutConstraint class="org.eclipse.swt.layout.GridData">
+																<Property name="verticalAlignment" type="int" value="2"/>
+																<Property name="horizontalAlignment" type="int" value="1"/>
+																<Property name="widthHint" type="int" value="-1"/>
+																<Property name="heightHint" type="int" value="-1"/>
+																<Property name="horizontalIndent" type="int" value="0"/>
+																<Property name="horizontalSpan" type="int" value="1"/>
+																<Property name="verticalSpan" type="int" value="1"/>
+																<Property name="grabExcessHorizontalSpace" type="boolean" value="false"/>
+																<Property name="grabExcessVerticalSpace" type="boolean" value="false"/>
+															</LayoutConstraint>
+														</Constraints>
+														<Events>
+														</Events>
+														<Properties>
+															<Property name="text" type="String" value="Socks server"/>
+															<Property name="bounds" type="Rectangle">
+																<Rectangle value="[15, 8, 68, 14]"/>
+															</Property>
+														</Properties>
+													</Component>
+													<Component class="org.eclipse.swt.widgets.Text" name="TsocksServer" style="2048">
+														<Constraints>
+															<Constraint class="org.eclipse.swt.layout.GridData"/>
+															<LayoutConstraint class="org.eclipse.swt.layout.GridData">
+																<Property name="verticalAlignment" type="int" value="2"/>
+																<Property name="horizontalAlignment" type="int" value="1"/>
+																<Property name="widthHint" type="int" value="175"/>
+																<Property name="heightHint" type="int" value="-1"/>
+																<Property name="horizontalIndent" type="int" value="0"/>
+																<Property name="horizontalSpan" type="int" value="1"/>
+																<Property name="verticalSpan" type="int" value="1"/>
+																<Property name="grabExcessHorizontalSpace" type="boolean" value="false"/>
+																<Property name="grabExcessVerticalSpace" type="boolean" value="false"/>
+															</LayoutConstraint>
+														</Constraints>
+														<Events>
+														</Events>
+														<Properties>
+															<Property name="text" type="String" value="sserver"/>
+															<Property name="bounds" type="Rectangle">
+																<Rectangle value="[98, 5, 188, 21]"/>
+															</Property>
+														</Properties>
+													</Component>
+													<Component class="org.eclipse.swt.widgets.Label" name="label6" style="0">
+														<Constraints>
+															<Constraint class="org.eclipse.swt.layout.GridData"/>
+															<LayoutConstraint class="org.eclipse.swt.layout.GridData">
+																<Property name="verticalAlignment" type="int" value="2"/>
+																<Property name="horizontalAlignment" type="int" value="1"/>
+																<Property name="widthHint" type="int" value="-1"/>
+																<Property name="heightHint" type="int" value="-1"/>
+																<Property name="horizontalIndent" type="int" value="0"/>
+																<Property name="horizontalSpan" type="int" value="1"/>
+																<Property name="verticalSpan" type="int" value="1"/>
+																<Property name="grabExcessHorizontalSpace" type="boolean" value="false"/>
+																<Property name="grabExcessVerticalSpace" type="boolean" value="false"/>
+															</LayoutConstraint>
+														</Constraints>
+														<Events>
+														</Events>
+														<Properties>
+															<Property name="text" type="String" value="Socks port"/>
+															<Property name="bounds" type="Rectangle">
+																<Rectangle value="[15, 36, 58, 14]"/>
+															</Property>
+														</Properties>
+													</Component>
+													<Component class="org.eclipse.swt.widgets.Text" name="TsocksPort" style="2048">
+														<Constraints>
+															<Constraint class="org.eclipse.swt.layout.GridData"/>
+															<LayoutConstraint class="org.eclipse.swt.layout.GridData">
+																<Property name="verticalAlignment" type="int" value="2"/>
+																<Property name="horizontalAlignment" type="int" value="1"/>
+																<Property name="widthHint" type="int" value="175"/>
+																<Property name="heightHint" type="int" value="14"/>
+																<Property name="horizontalIndent" type="int" value="0"/>
+																<Property name="horizontalSpan" type="int" value="1"/>
+																<Property name="verticalSpan" type="int" value="1"/>
+																<Property name="grabExcessHorizontalSpace" type="boolean" value="false"/>
+																<Property name="grabExcessVerticalSpace" type="boolean" value="false"/>
+															</LayoutConstraint>
+														</Constraints>
+														<Events>
+														</Events>
+														<Properties>
+															<Property name="text" type="String" value="sport"/>
+															<Property name="size" type="Dimension">
+																<Dimension value="[188, 21]"/>
+															</Property>
+															<Property name="bounds" type="Rectangle">
+																<Rectangle value="[98, 33, 188, 21]"/>
+															</Property>
+														</Properties>
+													</Component>
+												</SubComponents>
+											</Component>
+										</SubComponents>
+									</Component>
+								</SubComponents>
+							</Component>
+						</SubComponents>
+					</Component>
+					<Component class="org.eclipse.swt.widgets.TabItem" name="updateTabItem" style="0">
+						<Constraints>
+							<LayoutConstraint/>
+						</Constraints>
+						<Events>
+						</Events>
+						<Properties>
+							<Property name="text" type="String" value="Updating"/>
+						</Properties>
+						<SubComponents>
+							<Component class="org.eclipse.swt.widgets.Composite" name="composite5" style="0">
+								<Constraints>
+									<LayoutConstraint/>
+								</Constraints>
+								<Layout class="Grid">
+									<Property name="marginWidth" type="int" value="5"/>
+									<Property name="marginHeight" type="int" value="5"/>
+									<Property name="numColumns" type="int" value="1"/>
+									<Property name="makeColumnsEqualWidth" type="boolean" value="true"/>
+									<Property name="horizontalSpacing" type="int" value="5"/>
+									<Property name="verticalSpacing" type="int" value="5"/>
+								</Layout>
+								<Events>
+								</Events>
+								<Properties>
+								</Properties>
+								<SubComponents>
+									<Component class="org.eclipse.swt.widgets.Group" name="group2" style="0">
+										<Constraints>
+											<Constraint class="org.eclipse.swt.layout.GridData"/>
+											<LayoutConstraint class="org.eclipse.swt.layout.GridData">
+												<Property name="verticalAlignment" type="int" value="4"/>
+												<Property name="horizontalAlignment" type="int" value="4"/>
+												<Property name="widthHint" type="int" value="-1"/>
+												<Property name="heightHint" type="int" value="-1"/>
+												<Property name="horizontalIndent" type="int" value="0"/>
+												<Property name="horizontalSpan" type="int" value="1"/>
+												<Property name="verticalSpan" type="int" value="1"/>
+												<Property name="grabExcessHorizontalSpace" type="boolean" value="false"/>
+												<Property name="grabExcessVerticalSpace" type="boolean" value="true"/>
+											</LayoutConstraint>
+										</Constraints>
+										<Layout class="Grid">
+											<Property name="marginWidth" type="int" value="5"/>
+											<Property name="marginHeight" type="int" value="5"/>
+											<Property name="numColumns" type="int" value="1"/>
+											<Property name="makeColumnsEqualWidth" type="boolean" value="true"/>
+											<Property name="horizontalSpacing" type="int" value="5"/>
+											<Property name="verticalSpacing" type="int" value="5"/>
+										</Layout>
+										<Events>
+										</Events>
+										<Properties>
+											<Property name="text" type="String" value="Update from update database"/>
+											<Property name="bounds" type="Rectangle">
+												<Rectangle value="[5, 5, 422, 154]"/>
+											</Property>
+										</Properties>
+										<SubComponents>
+											<Component class="org.eclipse.swt.widgets.Button" name="RBupdateDBmanual" style="16400">
+												<Constraints>
+													<Constraint class="org.eclipse.swt.layout.GridData"/>
+													<LayoutConstraint class="org.eclipse.swt.layout.GridData">
+														<Property name="verticalAlignment" type="int" value="2"/>
+														<Property name="horizontalAlignment" type="int" value="1"/>
+														<Property name="widthHint" type="int" value="-1"/>
+														<Property name="heightHint" type="int" value="-1"/>
+														<Property name="horizontalIndent" type="int" value="0"/>
+														<Property name="horizontalSpan" type="int" value="1"/>
+														<Property name="verticalSpan" type="int" value="1"/>
+														<Property name="grabExcessHorizontalSpace" type="boolean" value="false"/>
+														<Property name="grabExcessVerticalSpace" type="boolean" value="false"/>
+													</LayoutConstraint>
+												</Constraints>
+												<Events>
+													<EventHandler event="widgetSelected" listener="org.eclipse.swt.events.SelectionListener" handler="RBupdateDBmanualWidgetSelected"/>
+												</Events>
+												<Properties>
+													<Property name="text" type="String" value="Manual update"/>
+													<Property name="bounds" type="Rectangle">
+														<Rectangle value="[8, 19, 101, 16]"/>
+													</Property>
+												</Properties>
+											</Component>
+											<Component class="org.eclipse.swt.widgets.Button" name="RBupdateDBauto" style="16400">
+												<Constraints>
+													<Constraint class="org.eclipse.swt.layout.GridData"/>
+													<LayoutConstraint class="org.eclipse.swt.layout.GridData">
+														<Property name="verticalAlignment" type="int" value="2"/>
+														<Property name="horizontalAlignment" type="int" value="1"/>
+														<Property name="widthHint" type="int" value="-1"/>
+														<Property name="heightHint" type="int" value="-1"/>
+														<Property name="horizontalIndent" type="int" value="0"/>
+														<Property name="horizontalSpan" type="int" value="1"/>
+														<Property name="verticalSpan" type="int" value="1"/>
+														<Property name="grabExcessHorizontalSpace" type="boolean" value="false"/>
+														<Property name="grabExcessVerticalSpace" type="boolean" value="false"/>
+													</LayoutConstraint>
+												</Constraints>
+												<Events>
+													<EventHandler event="widgetSelected" listener="org.eclipse.swt.events.SelectionListener" handler="RBupdateDBautoWidgetSelected"/>
+												</Events>
+												<Properties>
+													<Property name="text" type="String" value="Automatic update"/>
+													<Property name="bounds" type="Rectangle">
+														<Rectangle value="[8, 40, 120, 16]"/>
+													</Property>
+												</Properties>
+											</Component>
+											<Component class="org.eclipse.swt.widgets.Composite" name="composite7" style="0">
+												<Constraints>
+													<Constraint class="org.eclipse.swt.layout.GridData"/>
+													<LayoutConstraint class="org.eclipse.swt.layout.GridData">
+														<Property name="verticalAlignment" type="int" value="4"/>
+														<Property name="horizontalAlignment" type="int" value="4"/>
+														<Property name="widthHint" type="int" value="-1"/>
+														<Property name="heightHint" type="int" value="-1"/>
+														<Property name="horizontalIndent" type="int" value="15"/>
+														<Property name="horizontalSpan" type="int" value="1"/>
+														<Property name="verticalSpan" type="int" value="1"/>
+														<Property name="grabExcessHorizontalSpace" type="boolean" value="false"/>
+														<Property name="grabExcessVerticalSpace" type="boolean" value="true"/>
+													</LayoutConstraint>
+												</Constraints>
+												<Layout class="Grid">
+													<Property name="marginWidth" type="int" value="5"/>
+													<Property name="marginHeight" type="int" value="5"/>
+													<Property name="numColumns" type="int" value="2"/>
+													<Property name="makeColumnsEqualWidth" type="boolean" value="false"/>
+													<Property name="horizontalSpacing" type="int" value="15"/>
+													<Property name="verticalSpacing" type="int" value="5"/>
+												</Layout>
+												<Events>
+												</Events>
+												<Properties>
+													<Property name="bounds" type="Rectangle">
+														<Rectangle value="[23, 61, 391, 64]"/>
+													</Property>
+												</Properties>
+												<SubComponents>
+													<Component class="org.eclipse.swt.widgets.Label" name="label7" style="0">
+														<Constraints>
+															<Constraint class="org.eclipse.swt.layout.GridData"/>
+															<LayoutConstraint class="org.eclipse.swt.layout.GridData">
+																<Property name="verticalAlignment" type="int" value="2"/>
+																<Property name="horizontalAlignment" type="int" value="1"/>
+																<Property name="widthHint" type="int" value="-1"/>
+																<Property name="heightHint" type="int" value="-1"/>
+																<Property name="horizontalIndent" type="int" value="0"/>
+																<Property name="horizontalSpan" type="int" value="1"/>
+																<Property name="verticalSpan" type="int" value="1"/>
+																<Property name="grabExcessHorizontalSpace" type="boolean" value="false"/>
+																<Property name="grabExcessVerticalSpace" type="boolean" value="false"/>
+															</LayoutConstraint>
+														</Constraints>
+														<Events>
+														</Events>
+														<Properties>
+															<Property name="text" type="String" value="Interval (minutes)"/>
+															<Property name="bounds" type="Rectangle">
+																<Rectangle value="[5, 8, 98, 14]"/>
+															</Property>
+														</Properties>
+													</Component>
+													<Component class="org.eclipse.swt.widgets.Text" name="TupdateDBinterval" style="2048">
+														<Constraints>
+															<Constraint class="org.eclipse.swt.layout.GridData"/>
+															<LayoutConstraint class="org.eclipse.swt.layout.GridData">
+																<Property name="verticalAlignment" type="int" value="2"/>
+																<Property name="horizontalAlignment" type="int" value="1"/>
+																<Property name="widthHint" type="int" value="-1"/>
+																<Property name="heightHint" type="int" value="-1"/>
+																<Property name="horizontalIndent" type="int" value="0"/>
+																<Property name="horizontalSpan" type="int" value="1"/>
+																<Property name="verticalSpan" type="int" value="1"/>
+																<Property name="grabExcessHorizontalSpace" type="boolean" value="false"/>
+																<Property name="grabExcessVerticalSpace" type="boolean" value="false"/>
+															</LayoutConstraint>
+														</Constraints>
+														<Events>
+														</Events>
+														<Properties>
+															<Property name="text" type="String" value="text1"/>
+															<Property name="doubleClickEnabled" type="boolean" value="false"/>
+															<Property name="bounds" type="Rectangle">
+																<Rectangle value="[118, 5, 43, 21]"/>
+															</Property>
+														</Properties>
+													</Component>
+												</SubComponents>
+											</Component>
+											<Component class="org.eclipse.swt.widgets.Button" name="CBdeleteAfterUpdImport" style="16416">
+												<Constraints>
+													<Constraint class="org.eclipse.swt.layout.GridData"/>
+													<LayoutConstraint class="org.eclipse.swt.layout.GridData">
+														<Property name="verticalAlignment" type="int" value="2"/>
+														<Property name="horizontalAlignment" type="int" value="1"/>
+														<Property name="widthHint" type="int" value="-1"/>
+														<Property name="heightHint" type="int" value="-1"/>
+														<Property name="horizontalIndent" type="int" value="0"/>
+														<Property name="horizontalSpan" type="int" value="2"/>
+														<Property name="verticalSpan" type="int" value="1"/>
+														<Property name="grabExcessHorizontalSpace" type="boolean" value="false"/>
+														<Property name="grabExcessVerticalSpace" type="boolean" value="false"/>
+													</LayoutConstraint>
+												</Constraints>
+												<Events>
+												</Events>
+												<Properties>
+													<Property name="text" type="String" value="Delete entries from update database after import"/>
+													<Property name="bounds" type="Rectangle">
+														<Rectangle value="[8, 130, 292, 16]"/>
+													</Property>
+												</Properties>
+											</Component>
+										</SubComponents>
+									</Component>
+									<Component class="org.eclipse.swt.widgets.Group" name="group3" style="0">
+										<Constraints>
+											<Constraint class="org.eclipse.swt.layout.GridData"/>
+											<LayoutConstraint class="org.eclipse.swt.layout.GridData">
+												<Property name="verticalAlignment" type="int" value="4"/>
+												<Property name="horizontalAlignment" type="int" value="4"/>
+												<Property name="widthHint" type="int" value="-1"/>
+												<Property name="heightHint" type="int" value="-1"/>
+												<Property name="horizontalIndent" type="int" value="0"/>
+												<Property name="horizontalSpan" type="int" value="1"/>
+												<Property name="verticalSpan" type="int" value="1"/>
+												<Property name="grabExcessHorizontalSpace" type="boolean" value="false"/>
+												<Property name="grabExcessVerticalSpace" type="boolean" value="true"/>
+											</LayoutConstraint>
+										</Constraints>
+										<Layout class="Grid">
+											<Property name="marginWidth" type="int" value="5"/>
+											<Property name="marginHeight" type="int" value="5"/>
+											<Property name="numColumns" type="int" value="1"/>
+											<Property name="makeColumnsEqualWidth" type="boolean" value="true"/>
+											<Property name="horizontalSpacing" type="int" value="5"/>
+											<Property name="verticalSpacing" type="int" value="5"/>
+										</Layout>
+										<Events>
+										</Events>
+										<Properties>
+											<Property name="text" type="String" value="Update from website"/>
+											<Property name="size" type="Dimension">
+												<Dimension value="[422, 134]"/>
+											</Property>
+											<Property name="bounds" type="Rectangle">
+												<Rectangle value="[5, 164, 422, 134]"/>
+											</Property>
+										</Properties>
+										<SubComponents>
+											<Component class="org.eclipse.swt.widgets.Button" name="RBupdateWebManual" style="16400">
+												<Constraints>
+													<Constraint class="org.eclipse.swt.layout.GridData"/>
+													<LayoutConstraint class="org.eclipse.swt.layout.GridData">
+														<Property name="verticalAlignment" type="int" value="2"/>
+														<Property name="horizontalAlignment" type="int" value="1"/>
+														<Property name="widthHint" type="int" value="-1"/>
+														<Property name="heightHint" type="int" value="-1"/>
+														<Property name="horizontalIndent" type="int" value="0"/>
+														<Property name="horizontalSpan" type="int" value="1"/>
+														<Property name="verticalSpan" type="int" value="1"/>
+														<Property name="grabExcessHorizontalSpace" type="boolean" value="false"/>
+														<Property name="grabExcessVerticalSpace" type="boolean" value="false"/>
+													</LayoutConstraint>
+												</Constraints>
+												<Events>
+													<EventHandler event="widgetSelected" listener="org.eclipse.swt.events.SelectionListener" handler="RBupdateWebManualWidgetSelected"/>
+												</Events>
+												<Properties>
+													<Property name="text" type="String" value="Manual update"/>
+													<Property name="bounds" type="Rectangle">
+														<Rectangle value="[8, 19, 101, 16]"/>
+													</Property>
+												</Properties>
+											</Component>
+											<Component class="org.eclipse.swt.widgets.Button" name="RBupdateWebAuto" style="16400">
+												<Constraints>
+													<Constraint class="org.eclipse.swt.layout.GridData"/>
+													<LayoutConstraint class="org.eclipse.swt.layout.GridData">
+														<Property name="verticalAlignment" type="int" value="2"/>
+														<Property name="horizontalAlignment" type="int" value="1"/>
+														<Property name="widthHint" type="int" value="-1"/>
+														<Property name="heightHint" type="int" value="-1"/>
+														<Property name="horizontalIndent" type="int" value="0"/>
+														<Property name="horizontalSpan" type="int" value="1"/>
+														<Property name="verticalSpan" type="int" value="1"/>
+														<Property name="grabExcessHorizontalSpace" type="boolean" value="false"/>
+														<Property name="grabExcessVerticalSpace" type="boolean" value="false"/>
+													</LayoutConstraint>
+												</Constraints>
+												<Events>
+													<EventHandler event="widgetSelected" listener="org.eclipse.swt.events.SelectionListener" handler="RBupdateWebAutoWidgetSelected"/>
+												</Events>
+												<Properties>
+													<Property name="text" type="String" value="Automatic update"/>
+													<Property name="bounds" type="Rectangle">
+														<Rectangle value="[8, 40, 120, 16]"/>
+													</Property>
+												</Properties>
+											</Component>
+											<Component class="org.eclipse.swt.widgets.Composite" name="composite6" style="0">
+												<Constraints>
+													<Constraint class="org.eclipse.swt.layout.GridData"/>
+													<LayoutConstraint class="org.eclipse.swt.layout.GridData">
+														<Property name="verticalAlignment" type="int" value="4"/>
+														<Property name="horizontalAlignment" type="int" value="4"/>
+														<Property name="widthHint" type="int" value="-1"/>
+														<Property name="heightHint" type="int" value="-1"/>
+														<Property name="horizontalIndent" type="int" value="15"/>
+														<Property name="horizontalSpan" type="int" value="1"/>
+														<Property name="verticalSpan" type="int" value="1"/>
+														<Property name="grabExcessHorizontalSpace" type="boolean" value="false"/>
+														<Property name="grabExcessVerticalSpace" type="boolean" value="true"/>
+													</LayoutConstraint>
+												</Constraints>
+												<Layout class="Grid">
+													<Property name="marginWidth" type="int" value="5"/>
+													<Property name="marginHeight" type="int" value="5"/>
+													<Property name="numColumns" type="int" value="2"/>
+													<Property name="makeColumnsEqualWidth" type="boolean" value="false"/>
+													<Property name="horizontalSpacing" type="int" value="15"/>
+													<Property name="verticalSpacing" type="int" value="5"/>
+												</Layout>
+												<Events>
+												</Events>
+												<Properties>
+													<Property name="size" type="Dimension">
+														<Dimension value="[391, 65]"/>
+													</Property>
+													<Property name="bounds" type="Rectangle">
+														<Rectangle value="[23, 61, 391, 65]"/>
+													</Property>
+												</Properties>
+												<SubComponents>
+													<Component class="org.eclipse.swt.widgets.Label" name="label8" style="0">
+														<Constraints>
+															<Constraint class="org.eclipse.swt.layout.GridData"/>
+															<LayoutConstraint class="org.eclipse.swt.layout.GridData">
+																<Property name="verticalAlignment" type="int" value="2"/>
+																<Property name="horizontalAlignment" type="int" value="1"/>
+																<Property name="widthHint" type="int" value="-1"/>
+																<Property name="heightHint" type="int" value="-1"/>
+																<Property name="horizontalIndent" type="int" value="0"/>
+																<Property name="horizontalSpan" type="int" value="1"/>
+																<Property name="verticalSpan" type="int" value="1"/>
+																<Property name="grabExcessHorizontalSpace" type="boolean" value="false"/>
+																<Property name="grabExcessVerticalSpace" type="boolean" value="false"/>
+															</LayoutConstraint>
+														</Constraints>
+														<Events>
+														</Events>
+														<Properties>
+															<Property name="text" type="String" value="Interval (minutes)"/>
+															<Property name="bounds" type="Rectangle">
+																<Rectangle value="[5, 8, 98, 14]"/>
+															</Property>
+														</Properties>
+													</Component>
+													<Component class="org.eclipse.swt.widgets.Text" name="TupdateWebInterval" style="2048">
+														<Constraints>
+															<Constraint class="org.eclipse.swt.layout.GridData"/>
+															<LayoutConstraint class="org.eclipse.swt.layout.GridData">
+																<Property name="verticalAlignment" type="int" value="2"/>
+																<Property name="horizontalAlignment" type="int" value="1"/>
+																<Property name="widthHint" type="int" value="-1"/>
+																<Property name="heightHint" type="int" value="-1"/>
+																<Property name="horizontalIndent" type="int" value="0"/>
+																<Property name="horizontalSpan" type="int" value="1"/>
+																<Property name="verticalSpan" type="int" value="1"/>
+																<Property name="grabExcessHorizontalSpace" type="boolean" value="false"/>
+																<Property name="grabExcessVerticalSpace" type="boolean" value="false"/>
+															</LayoutConstraint>
+														</Constraints>
+														<Events>
+														</Events>
+														<Properties>
+															<Property name="text" type="String" value="text2"/>
+															<Property name="bounds" type="Rectangle">
+																<Rectangle value="[118, 5, 43, 21]"/>
+															</Property>
+														</Properties>
+													</Component>
+												</SubComponents>
+											</Component>
+										</SubComponents>
+									</Component>
+									<Component class="org.eclipse.swt.widgets.Button" name="CBupdateOnlyIfNewData" style="16416">
+										<Constraints>
+											<Constraint class="org.eclipse.swt.layout.GridData"/>
+											<LayoutConstraint class="org.eclipse.swt.layout.GridData">
+												<Property name="verticalAlignment" type="int" value="2"/>
+												<Property name="horizontalAlignment" type="int" value="1"/>
+												<Property name="widthHint" type="int" value="-1"/>
+												<Property name="heightHint" type="int" value="-1"/>
+												<Property name="horizontalIndent" type="int" value="7"/>
+												<Property name="horizontalSpan" type="int" value="2"/>
+												<Property name="verticalSpan" type="int" value="1"/>
+												<Property name="grabExcessHorizontalSpace" type="boolean" value="false"/>
+												<Property name="grabExcessVerticalSpace" type="boolean" value="false"/>
+											</LayoutConstraint>
+										</Constraints>
+										<Events>
+										</Events>
+										<Properties>
+											<Property name="text" type="String" value="Don't store unchanged data"/>
+											<Property name="bounds" type="Rectangle">
+												<Rectangle value="[12, 303, 176, 16]"/>
+											</Property>
+										</Properties>
+									</Component>
+								</SubComponents>
+							</Component>
+						</SubComponents>
+					</Component>
+				</SubComponents>
+			</Component>
+			<Component class="org.eclipse.swt.widgets.Composite" name="buttonComposite" style="0">
+				<Constraints>
+					<Constraint class="org.eclipse.swt.layout.GridData"/>
+					<LayoutConstraint class="org.eclipse.swt.layout.GridData">
+						<Property name="verticalAlignment" type="int" value="2"/>
+						<Property name="horizontalAlignment" type="int" value="4"/>
+						<Property name="widthHint" type="int" value="-1"/>
+						<Property name="heightHint" type="int" value="-1"/>
+						<Property name="horizontalIndent" type="int" value="0"/>
+						<Property name="horizontalSpan" type="int" value="1"/>
+						<Property name="verticalSpan" type="int" value="1"/>
+						<Property name="grabExcessHorizontalSpace" type="boolean" value="true"/>
+						<Property name="grabExcessVerticalSpace" type="boolean" value="false"/>
+					</LayoutConstraint>
+				</Constraints>
+				<Layout class="Grid">
+					<Property name="marginWidth" type="int" value="5"/>
+					<Property name="marginHeight" type="int" value="5"/>
+					<Property name="numColumns" type="int" value="3"/>
+					<Property name="makeColumnsEqualWidth" type="boolean" value="false"/>
+					<Property name="horizontalSpacing" type="int" value="5"/>
+					<Property name="verticalSpacing" type="int" value="5"/>
+				</Layout>
+				<Events>
+				</Events>
+				<Properties>
+					<Property name="bounds" type="Rectangle">
+						<Rectangle value="[5, 361, 440, 34]"/>
+					</Property>
+				</Properties>
+				<SubComponents>
+					<Component class="org.eclipse.swt.widgets.Label" name="label1" style="0">
+						<Constraints>
+							<Constraint class="org.eclipse.swt.layout.GridData"/>
+							<LayoutConstraint class="org.eclipse.swt.layout.GridData">
+								<Property name="verticalAlignment" type="int" value="2"/>
+								<Property name="horizontalAlignment" type="int" value="4"/>
+								<Property name="widthHint" type="int" value="-1"/>
+								<Property name="heightHint" type="int" value="-1"/>
+								<Property name="horizontalIndent" type="int" value="0"/>
+								<Property name="horizontalSpan" type="int" value="1"/>
+								<Property name="verticalSpan" type="int" value="1"/>
+								<Property name="grabExcessHorizontalSpace" type="boolean" value="true"/>
+								<Property name="grabExcessVerticalSpace" type="boolean" value="false"/>
+							</LayoutConstraint>
+						</Constraints>
+						<Events>
+						</Events>
+						<Properties>
+							<Property name="text" type="String" value=" "/>
+							<Property name="bounds" type="Rectangle">
+								<Rectangle value="[5, 10, 345, 14]"/>
+							</Property>
+						</Properties>
+					</Component>
+					<Component class="org.eclipse.swt.widgets.Button" name="Bok" style="16777224">
+						<Constraints>
+							<Constraint class="org.eclipse.swt.layout.GridData"/>
+							<LayoutConstraint class="org.eclipse.swt.layout.GridData">
+								<Property name="verticalAlignment" type="int" value="2"/>
+								<Property name="horizontalAlignment" type="int" value="3"/>
+								<Property name="widthHint" type="int" value="-1"/>
+								<Property name="heightHint" type="int" value="-1"/>
+								<Property name="horizontalIndent" type="int" value="0"/>
+								<Property name="horizontalSpan" type="int" value="1"/>
+								<Property name="verticalSpan" type="int" value="1"/>
+								<Property name="grabExcessHorizontalSpace" type="boolean" value="false"/>
+								<Property name="grabExcessVerticalSpace" type="boolean" value="false"/>
+							</LayoutConstraint>
+						</Constraints>
+						<Events>
+							<EventHandler event="widgetSelected" listener="org.eclipse.swt.events.SelectionListener" handler="BokWidgetSelected"/>
+						</Events>
+						<Properties>
+							<Property name="text" type="String" value="OK"/>
+							<Property name="bounds" type="Rectangle">
+								<Rectangle value="[355, 5, 28, 24]"/>
+							</Property>
+						</Properties>
+					</Component>
+					<Component class="org.eclipse.swt.widgets.Button" name="Bcancel" style="16777224">
+						<Constraints>
+							<Constraint class="org.eclipse.swt.layout.GridData"/>
+							<LayoutConstraint class="org.eclipse.swt.layout.GridData">
+								<Property name="verticalAlignment" type="int" value="2"/>
+								<Property name="horizontalAlignment" type="int" value="3"/>
+								<Property name="widthHint" type="int" value="-1"/>
+								<Property name="heightHint" type="int" value="-1"/>
+								<Property name="horizontalIndent" type="int" value="0"/>
+								<Property name="horizontalSpan" type="int" value="1"/>
+								<Property name="verticalSpan" type="int" value="1"/>
+								<Property name="grabExcessHorizontalSpace" type="boolean" value="false"/>
+								<Property name="grabExcessVerticalSpace" type="boolean" value="false"/>
+							</LayoutConstraint>
+						</Constraints>
+						<Events>
+							<EventHandler event="widgetSelected" listener="org.eclipse.swt.events.SelectionListener" handler="BcancelWidgetSelected"/>
+						</Events>
+						<Properties>
+							<Property name="text" type="String" value="Cancel"/>
+							<Property name="bounds" type="Rectangle">
+								<Rectangle value="[388, 5, 47, 24]"/>
+							</Property>
+						</Properties>
+					</Component>
+				</SubComponents>
+			</Component>
+		</SubComponents>
+	</Component>
+</Form>

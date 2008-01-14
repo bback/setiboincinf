@@ -1,0 +1,20 @@
+16.6.2005:
+- bug fixed, the computed averages did not work
+- bug fixed, OS type and OS were only partly shown/stored
+
+24.6.2005:
+- added credit update overview, shows days since last
+  credit increase for each actual host
+- refresh average values after updates
+
+- Ausgabe des Tagesdurchschnitts um den der Wert "Credits" anstieg
+- zusätzliche Ausgabe des Tagesdurchschnitts um den der Wert "Avg. Credits" anstieg
+
+TODO:
+- beim obersten update (HostStats) eine spezielle singlehoststable mit icons:
+  - grün = credits seit letztem mal gestiegen
+  - dunkleres grün = credits heute schon mal angestiegen
+  - leichtes rot = heute noch nicht angestiegen
+
+TODO: wenn in options db/web update interval eine einstellige zahl steht ist textfield
+      nur so klein das 1 zahl reinpasst!

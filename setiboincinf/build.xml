@@ -1,0 +1,78 @@
+<project name="BoincInf - BOINC Client Information" default="jar" basedir=".">
+  <!-- set global properties for this build -->
+  <property name="zipname"    value="setiboincinf-042.zip"/>
+  <property name="zipupdname" value="setiboincinf-042-update.zip"/>
+
+  <property name="src" location="src"/>
+  <property name="build" location="build"/>
+  <property name="dist"  location="dist"/>
+  <property name="distzips"  location="dist_zips"/>
+
+  <property name="jar.name" value="boincinf"/>
+  <property name="lib.dir" value="bin/lib"/>
+
+  <target name="init">
+    <!-- Create the time stamp -->
+    <tstamp/>
+    <!-- Create the build directory structure used by compile -->
+    <mkdir dir="${build}"/>
+  </target>
+
+  <path id="classpath">
+    <pathelement location="${lib.dir}/xerces.jar"/>
+    <pathelement location="${lib.dir}/hsqldb/hsqldb.jar"/>
+    <pathelement location="${lib.dir}/swt_2.1.3-win32/swt.jar"/>
+    <pathelement location="${lib.dir}/org.eclipse.ui.workbench_2.1.3/workbench.jar"/>
+    <pathelement location="${lib.dir}/org.eclipse.jface_2.1.3/jface.jar"/>
+    <pathelement location="${lib.dir}/org.eclipse.core.runtime_2.1.1/runtime.jar"/>
+    <pathelement location="${lib.dir}/org.eclipse.core.boot_2.1.3/boot.jar"/>
+  </path>
+
+  <target name="compile" depends="init"
+        description="compile the source " >
+    <!-- Compile the java code from ${src} into ${build} -->
+    <javac optimize="true" srcdir="${src}" destdir="${build}" >
+      <classpath refid="classpath" />
+    </javac>
+  </target>
+
+  <target name="jar" depends="compile"
+        description="generate the jar" >
+    <!-- Put icons into ${build} -->
+    <mkdir dir="${build}/icons"/>
+	<copy todir="${build}/icons">
+	    <fileset dir="icons"/>
+	</copy>
+
+    <!-- Put everything in ${build} into a jar -->
+    <mkdir dir="${dist}"/>
+    <jar jarfile="${dist}/${jar.name}.jar" basedir="${build}"/>
+    <delete dir="${build}"/>
+  </target>
+
+  <target name="dist" depends="compile"
+        description="generate the distribution" >
+    <delete dir="${dist}"/>
+    <antcall target="jar" />
+    <!-- Copy content from bin/ -->
+	<copy todir="${dist}">
+	    <fileset dir="bin">
+	        <exclude name="**/doc/*.bak"/>
+	        <exclude name="**/doc/robots.txt"/>
+	    </fileset>
+	</copy>
+	<move file="${dist}/doc/index.shtml" tofile="${dist}/doc/index.html" />
+
+    <!-- Create zip files -->
+    <zip destfile="${distzips}/${zipname}" basedir="${dist}" />
+    <zip destfile="${distzips}/${zipupdname}">
+      <fileset dir="${dist}" includes="${jar.name}.jar"/>
+      <fileset dir="${dist}" includes="run_output.bat"/>
+      <fileset dir="${dist}" includes="run_output_dbg.bat"/>
+	  <fileset dir="${dist}">
+	    <filename name="**/doc/**/*.*"/>
+	  </fileset>
+    </zip>
+  </target>
+
+</project>

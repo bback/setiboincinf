@@ -17,6 +17,6 @@ The program is written in JAVA and uses the Eclipse SWT GUI library. It runs on 
 
 = Development Plans =
 
-I reactivated the source (in use by many people) and created a GoogleCode project for it.
+I reactivated the source (in use by many people) and created a Google Code project for it.
 
 My next plans are to replace the current hsqldb storage by a (much faster) perst storage system implementation.

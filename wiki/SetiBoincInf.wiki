@@ -8,11 +8,11 @@ Updating can be done using a console program which retrieves an update all X min
 
 The program is written in JAVA and uses the Eclipse SWT GUI library. It runs on Windows and Linux (GTK). 
 
-*[Installation]*
+== *[Installation]* ==
 
-*[Usage]*
+== *[Usage]* ==
 
-*[About]*
+== *[About]* ==
 
 
 = Development Plans =

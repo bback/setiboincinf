@@ -1,0 +1,16 @@
+#summary SetiBoincInf Overview
+
+= Introduction =
+
+SetiBoincInf is a FREE add-on especially for a BOINC project called SETI@HOME. It retrieves the credit information for an account and stores the credits together with the client information for each client host.
+
+Updating can be done using a console program which retrieves an update all X minutes. The main program is a GUI to view the stored entries, update, import and export them, see some overall statistics and to maintain the entries.
+
+The program is written in JAVA and uses the Eclipse SWT GUI library. It runs on Windows and Linux (GTK). 
+
+
+= Development Plans =
+
+I reactivated the source (in use by many people) and created a GoogleCode project for it.
+
+My next plans are to replace the current hsqldb storage by a (much faster) perst storage system implementation.

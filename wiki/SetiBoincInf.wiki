@@ -1,4 +1,5 @@
 #summary SetiBoincInf Overview
+#labels Featured,Phase-Requirements
 
 = Introduction =
 

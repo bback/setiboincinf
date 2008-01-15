@@ -397,16 +397,16 @@ public class BoincInfGui extends ApplicationWindow {
         if( getStore() == null ) {
             return;
         }
-        final SQLStorage.Averages avgs = getStore().getAverages();
+        final Averages avgs = getStore().getAverages();
 
-        labAvg30.setText(avgs.avg30);
-        labAvg30_grow.setText("(" + avgs.avg30_grow+")");
-        labAvg14.setText(avgs.avg14);
-        labAvg14_grow.setText("(" + avgs.avg14_grow+")");
-        labAvgAll.setText(avgs.avgAll);
-        labAvgAll_grow.setText("(" + avgs.avgAll_grow+")");
+        labAvg30.setText(avgs.getAvg30());
+        labAvg30_grow.setText("(" + avgs.getAvg30_grow()+")");
+        labAvg14.setText(avgs.getAvg14());
+        labAvg14_grow.setText("(" + avgs.getAvg14_grow()+")");
+        labAvgAll.setText(avgs.getAvgAll());
+        labAvgAll_grow.setText("(" + avgs.getAvgAll_grow()+")");
 
-        final List<SQLStorage.CreditsAtTime> cats = getStore().getCreditAtTimeForDayCount(90);
+        final List<CreditsAtTime> cats = getStore().getCreditAtTimeForDayCount(90);
         DiagramPainter.setCreditsAtTimeList(cats);
         canvas.redraw();
     }

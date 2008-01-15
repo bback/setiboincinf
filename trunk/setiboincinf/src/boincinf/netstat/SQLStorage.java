@@ -25,19 +25,23 @@ import org.eclipse.swt.graphics.*;
 import boincinf.*;
 import boincinf.gui.*;
 
-public class SQLStorage
-{
+public class SQLStorage {
+
     private static String JDBC_URL = "jdbc:hsqldb:";
 
-    Connection conn;
-    PreparedStatement deleteSingleHost = null;
-    PreparedStatement deleteHostStat = null;
-    PreparedStatement listSingleHosts = null;
-    PreparedStatement listHostStats = null;
-    PreparedStatement creditsSingleHosts = null;
+    private final Connection conn;
+    private final PreparedStatement deleteSingleHost;
+    private final PreparedStatement deleteHostStat;
+    private final PreparedStatement listSingleHosts;
+    private final PreparedStatement listHostStats;
+    private final PreparedStatement creditsSingleHosts;
 
-    public SQLStorage(final String jdbcUrl) throws SQLException
-    {
+    public static SQLStorage createSQLStore(final String dbname) throws Exception {
+        final String jdbcurl = JDBC_URL + dbname;
+        return new SQLStorage(jdbcurl);
+    }
+
+    public SQLStorage(final String jdbcUrl) throws SQLException {
         conn = DriverManager.getConnection(jdbcUrl, "sa", "");
         // prepare for read/delete in db
         try {
@@ -46,8 +50,9 @@ public class SQLStorage
             listSingleHosts = conn.prepareCall("SELECT when_taken,host_id,credit,avg_credit,host_name,system_type,os_type FROM SingleHosts WHERE when_taken=? ORDER BY credit DESC");
             listHostStats = conn.prepareCall("SELECT when_taken,sum_credit,sum_avg_credit FROM HostStats ORDER BY when_taken DESC");
             creditsSingleHosts = conn.prepareCall("SELECT when_taken,sum_credit,sum_avg_credit FROM HostStats WHERE when_taken>? ORDER BY when_taken ASC");
-        } catch(final Exception e) {
+        } catch(final SQLException e) {
             BoincNetStats.out("PrepareCall: "+e.toString());
+            throw e;
         }
     }
 
@@ -169,8 +174,7 @@ public class SQLStorage
         }
     }
 
-    public int deleteHostStat(final HostStats hs)
-    {
+    public int deleteHostStat(final HostStats hs) {
         final Timestamp ts = hs.timestamp;
         int del=0;
         try {
@@ -188,8 +192,7 @@ public class SQLStorage
         return del;
     }
 
-    public void close()
-    {
+    public void close() {
         if( deleteSingleHost != null ) {
             try { deleteSingleHost.close(); } catch (final SQLException e1) { e1.printStackTrace(); }
         }
@@ -210,14 +213,12 @@ public class SQLStorage
         }
     }
 
-    public ArrayList<HostStats> getHostStats()
-    {
+    public ArrayList<HostStats> getHostStats() {
         ResultSet r = null;
         final ArrayList<HostStats> l = new ArrayList<HostStats>();
         try {
             r = listHostStats.executeQuery();
-			while(r.next())
-			{
+			while(r.next()) {
 				final HostStats hs = new HostStats();
 				hs.singleHosts = null;
 				hs.timestamp = r.getTimestamp(1);
@@ -226,8 +227,7 @@ public class SQLStorage
 				l.add( hs );
 			}
 			r.close();
-        }
-        catch (final Throwable e) {
+        } catch (final Throwable e) {
             //e.printStackTrace();
         }
         return l;
@@ -240,24 +240,20 @@ public class SQLStorage
         try {
             final PreparedStatement get = conn.prepareCall("SELECT when_taken FROM HostStats ORDER BY when_taken DESC");
             r = get.executeQuery();
-            while(r.next())
-            {
+            while(r.next()) {
                 final HostStats hs = new HostStats();
                 hs.singleHosts = null;
                 hs.timestamp = r.getTimestamp(1);
                 l.add( hs );
             }
             r.close();
-        }
-        catch (final Throwable e) {
+        } catch (final Throwable e) {
             //e.printStackTrace();
         }
         return l;
     }
 
     public Averages getAverages() {
-
-        final Averages avgs = new Averages();
 
         final List<CreditsAtTime> list_all = getCreditAtTimeForDayCount(-1); // alle holen
         final List<CreditsAtTime> list_14 = new ArrayList<CreditsAtTime>();
@@ -267,7 +263,7 @@ public class SQLStorage
 
         for( final CreditsAtTime creditsAtTime : list_all ) {
             final CreditsAtTime cat = creditsAtTime;
-            final long t = cat.timestamp.getTime();
+            final long t = cat.getTimestamp().getTime();
             if( t > starttime_14 ) {
                 list_14.add(cat);
             }
@@ -279,16 +275,18 @@ public class SQLStorage
         /**
          * Tagesdurchschnitt um den der Wert "Credits" anstieg.
          */
-        avgs.avg14 = getCreditAverage(list_14, false);
-        avgs.avg30 = getCreditAverage(list_30, false);
-        avgs.avgAll = getCreditAverage(list_all, false);
+        final String avg14 = getCreditAverage(list_14, false);
+        final String avg30 = getCreditAverage(list_30, false);
+        final String avgAll = getCreditAverage(list_all, false);
 
         /**
          * Tagesdurchschnitt um den der Wert "Avg. Credits" anstieg.
          */
-        avgs.avg14_grow = getCreditAverage(list_14, true);
-        avgs.avg30_grow = getCreditAverage(list_30, true);
-        avgs.avgAll_grow = getCreditAverage(list_all, true);
+        final String avg14_grow = getCreditAverage(list_14, true);
+        final String avg30_grow = getCreditAverage(list_30, true);
+        final String avgAll_grow = getCreditAverage(list_all, true);
+
+        final Averages avgs = new Averages(avg14, avg14_grow, avg30, avg30_grow, avgAll, avgAll_grow);
 
         return avgs;
     }
@@ -315,10 +313,10 @@ public class SQLStorage
             creditsSingleHosts.setTimestamp(1, startts);
             final ResultSet r = creditsSingleHosts.executeQuery();
             while(r.next()) {
-                final CreditsAtTime cat = new CreditsAtTime();
-                cat.timestamp = r.getTimestamp(1);
-                cat.sum_credits = r.getDouble(2);
-                cat.sum_avg_credits = r.getDouble(3);
+                final java.sql.Timestamp timestamp = r.getTimestamp(1);
+                final double sum_credits = r.getDouble(2);
+                final double sum_avg_credits = r.getDouble(3);
+                final CreditsAtTime cat = new CreditsAtTime(sum_credits, sum_avg_credits, timestamp);
                 list.add(cat);
             }
             r.close();
@@ -336,8 +334,8 @@ public class SQLStorage
      *
      * Deleted host are not included in the computation.
      */
-    private String getCreditAverage(final List<CreditsAtTime> list, final boolean use_avg_credit)
-    {
+    private String getCreditAverage(final List<CreditsAtTime> list, final boolean use_avg_credit) {
+
         final String DEFAULT_RETVAL = "0.00";
 
         if( list.size() < 2 ) {
@@ -359,8 +357,8 @@ public class SQLStorage
 
                     final CreditsAtTime cat = creditsAtTime;
     				// time is X, credit is Y
-    				final long times = (cat.timestamp.getTime() / 1000L / 60L); // ms -> minutes
-    				final double credit = cat.sum_avg_credits;
+    				final long times = (cat.getTimestamp().getTime() / 1000L / 60L); // ms -> minutes
+    				final double credit = cat.getSum_avg_credits();
                     // TEST: doppelte credit messwerte entfernen, verziehen in linearer regression das ergebnis
                     if( credit == beforeCredit ) {
                         continue;
@@ -383,10 +381,10 @@ public class SQLStorage
                 final CreditsAtTime first = list.get(0);
                 final CreditsAtTime last = list.get(list.size()-1);
 
-                double t = last.timestamp.getTime() - first.timestamp.getTime(); // delta tage
+                double t = last.getTimestamp().getTime() - first.getTimestamp().getTime(); // delta tage
                 t = t / 1000 / 60 / 60 / 24;
 
-                result = (last.sum_credits - first.sum_credits) / t;
+                result = (last.getSum_credits() - first.getSum_credits()) / t;
             }
 
             result = ( ((long)(result*100)) / 100.0 ); // 'format' to 0.00
@@ -431,8 +429,8 @@ function regress(f) {
   f.r.value = Math.round(hilf*1000)/1000   == Rxy Regressionskoeffizient
 } */
 
-    public boolean existRecordsInRange( final Timestamp low, final Timestamp up)
-    {
+    public boolean existRecordsInRange( final Timestamp low, final Timestamp up) {
+
         final String sql = "SELECT when_taken FROM HostStats WHERE when_taken > ? AND when_taken < ?";
         try {
             final PreparedStatement ps = getConnection().prepareCall(sql);
@@ -452,8 +450,8 @@ function regress(f) {
         return true;
     }
 
-    public ArrayList<SingleHostStat> retrieveSingleHosts(final Timestamp ts)
-    {
+    public ArrayList<SingleHostStat> retrieveSingleHosts(final Timestamp ts) {
+
         final ArrayList<SingleHostStat> l = new ArrayList<SingleHostStat>();
         ResultSet r = null;
         int cnt=1;
@@ -518,8 +516,7 @@ function regress(f) {
     public final static int SAVE_DUPLICATE_DATA = 2;
     public final static int SAVE_ERROR          = 99;
 
-    public int saveToSQL(final HostStats hs)
-    {
+    public int saveToSQL(final HostStats hs) {
         if( BoincNetStats.getCfg().getBooleanProperty("update_dont_store_unchanged_data") ) {
             // check if this hs.sum_credit value is already in database
             try {
@@ -585,8 +582,7 @@ function regress(f) {
         return SAVE_OK;
     }
 
-    public void createDbTables() throws Exception
-    {
+    public void createDbTables() throws Exception {
         BoincNetStats.out("Creating SQL tables ...");
 
         final Statement stat = conn.createStatement();
@@ -614,20 +610,17 @@ function regress(f) {
         stat.close();
     }
 
-    public Connection getConnection()
-    {
+    private Connection getConnection() {
         return conn;
     }
 
-    public void ensureDBTables() throws Exception
-    {
+    public void ensureDBTables() throws Exception {
         if( doesTableExist("HostStats", "when_taken") == false ) {
             createDbTables();
         }
     }
 
-    private boolean doesTableExist(final String tablename, final String tablefield)
-    {
+    private boolean doesTableExist(final String tablename, final String tablefield) {
         final String sql = "SELECT "+tablefield+" FROM "+tablename;
         try {
             final Statement st = getConnection().createStatement();
@@ -639,11 +632,6 @@ function regress(f) {
         return true;
     }
 
-    public static SQLStorage createSQLStore(final String dbname) throws Exception {
-        final String jdbcurl = JDBC_URL + dbname;
-        return new SQLStorage(jdbcurl);
-    }
-
     static {
         try {
             Class.forName("org.hsqldb.jdbcDriver");
@@ -652,19 +640,5 @@ function regress(f) {
             e.printStackTrace();
             System.exit(0);
         }
-    }
-
-    public class CreditsAtTime {
-        public double sum_credits;
-        public double sum_avg_credits;
-        public java.sql.Timestamp timestamp;
-    }
-    public class Averages {
-        public String avg14 = "";
-        public String avg14_grow = "";
-        public String avg30 = "";
-        public String avg30_grow = "";
-        public String avgAll = "";
-        public String avgAll_grow = "";
     }
 }

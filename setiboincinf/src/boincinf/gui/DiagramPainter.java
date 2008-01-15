@@ -22,11 +22,10 @@ import org.eclipse.swt.events.*;
 import org.eclipse.swt.widgets.*;
 
 import boincinf.netstat.*;
-import boincinf.netstat.SQLStorage.*;
 
 public class DiagramPainter {
 
-    private static java.util.List<SQLStorage.CreditsAtTime> creditsAtTimeList = null; // store.getCreditAtTimeForDayCount(90);
+    private static java.util.List<CreditsAtTime> creditsAtTimeList = null; // store.getCreditAtTimeForDayCount(90);
     private static double avg14_m = -1.0;
     private static double avg30_m = -1.0;
 
@@ -47,18 +46,18 @@ public class DiagramPainter {
             return;
         }
 
-        final java.util.List<SQLStorage.CreditsAtTime> cats = getCreditsAtTimeList();
-        final SQLStorage.CreditsAtTime first = cats.get(0);
-        final SQLStorage.CreditsAtTime last = cats.get(cats.size()-1);
+        final java.util.List<CreditsAtTime> cats = getCreditsAtTimeList();
+        final CreditsAtTime first = cats.get(0);
+        final CreditsAtTime last = cats.get(cats.size()-1);
 
         final long divFactor = 1000; // ms -> sec
 
-        final long deltaTime = (last.timestamp.getTime() - first.timestamp.getTime())/divFactor;
-        final long minTime = first.timestamp.getTime()/divFactor;
+        final long deltaTime = (last.getTimestamp().getTime() - first.getTimestamp().getTime())/divFactor;
+        final long minTime = first.getTimestamp().getTime()/divFactor;
 //        long maxTime = last.timestamp.getTime()/divFactor;
 
-        final long deltaCredits = (long)(last.sum_credits - first.sum_credits);
-        final long minCredits = (long)first.sum_credits;
+        final long deltaCredits = (long)(last.getSum_credits() - first.getSum_credits());
+        final long minCredits = (long)first.getSum_credits();
 //        long maxCredits = (long)last.sum_credits;
 
         final int axisPos = 10;
@@ -79,27 +78,27 @@ public class DiagramPainter {
 
         final long starttime_14 = getStartTime(14);
         final long starttime_30 = getStartTime(30);
-        SQLStorage.CreditsAtTime first_avg14 = null;
-        SQLStorage.CreditsAtTime first_avg30 = null;
+        CreditsAtTime first_avg14 = null;
+        CreditsAtTime first_avg30 = null;
 
         // find start avg14 and avg30
         for( final CreditsAtTime cat : cats ) {
-            if( first_avg14 == null && cat.timestamp.getTime() > starttime_14 ) {
+            if( first_avg14 == null && cat.getTimestamp().getTime() > starttime_14 ) {
                 first_avg14 = cat;
             }
-            if( first_avg30 == null && cat.timestamp.getTime() > starttime_30 ) {
+            if( first_avg30 == null && cat.getTimestamp().getTime() > starttime_30 ) {
                 first_avg30 = cat;
             }
         }
 
         // zeichne gerade von anfang bis ende der werte (Gesamtdurchschnitt)
         {
-            final long x1 = (long)((first.timestamp.getTime()/divFactor - minTime) * factorX) + axisPos;
-            long y1 = (long)((first.sum_credits - minCredits) * factorY) + axisPos;
+            final long x1 = (long)((first.getTimestamp().getTime()/divFactor - minTime) * factorX) + axisPos;
+            long y1 = (long)((first.getSum_credits() - minCredits) * factorY) + axisPos;
             y1 = maxY - y1;
 
-            final long x2 = (long)((last.timestamp.getTime()/divFactor - minTime) * factorX) + axisPos;
-            long y2 = (long)((last.sum_credits - minCredits) * factorY) + axisPos;
+            final long x2 = (long)((last.getTimestamp().getTime()/divFactor - minTime) * factorX) + axisPos;
+            long y2 = (long)((last.getSum_credits() - minCredits) * factorY) + axisPos;
             y2 = maxY - y2;
 
             e.gc.setForeground(e.display.getSystemColor(SWT.COLOR_GREEN));
@@ -108,12 +107,12 @@ public class DiagramPainter {
 
         // zeichne gerade von beginn avg14 bis ende
         if( first_avg14 != null ) {
-            final long x1 = (long)((first_avg14.timestamp.getTime()/divFactor - minTime) * factorX) + axisPos;
-            long y1 = (long)((first_avg14.sum_credits - minCredits) * factorY) + axisPos;
+            final long x1 = (long)((first_avg14.getTimestamp().getTime()/divFactor - minTime) * factorX) + axisPos;
+            long y1 = (long)((first_avg14.getSum_credits() - minCredits) * factorY) + axisPos;
             y1 = maxY - y1;
 
-            final long x2 = (long)((last.timestamp.getTime()/divFactor - minTime) * factorX) + axisPos;
-            long y2 = (long)((last.sum_credits - minCredits) * factorY) + axisPos;
+            final long x2 = (long)((last.getTimestamp().getTime()/divFactor - minTime) * factorX) + axisPos;
+            long y2 = (long)((last.getSum_credits() - minCredits) * factorY) + axisPos;
             y2 = maxY - y2;
 
             e.gc.setForeground(e.display.getSystemColor(SWT.COLOR_BLUE));
@@ -121,12 +120,12 @@ public class DiagramPainter {
         }
 
         if( first_avg30 != null ) {
-            final long x1 = (long)((first_avg30.timestamp.getTime()/divFactor - minTime) * factorX) + axisPos;
-            long y1 = (long)((first_avg30.sum_credits - minCredits) * factorY) + axisPos;
+            final long x1 = (long)((first_avg30.getTimestamp().getTime()/divFactor - minTime) * factorX) + axisPos;
+            long y1 = (long)((first_avg30.getSum_credits() - minCredits) * factorY) + axisPos;
             y1 = maxY - y1;
 
-            final long x2 = (long)((last.timestamp.getTime()/divFactor - minTime) * factorX) + axisPos;
-            long y2 = (long)((last.sum_credits - minCredits) * factorY) + axisPos;
+            final long x2 = (long)((last.getTimestamp().getTime()/divFactor - minTime) * factorX) + axisPos;
+            long y2 = (long)((last.getSum_credits() - minCredits) * factorY) + axisPos;
             y2 = maxY - y2;
 
             e.gc.setForeground(e.display.getSystemColor(SWT.COLOR_MAGENTA));
@@ -139,9 +138,9 @@ public class DiagramPainter {
         long lastX = -1;
         long lastY = -1;
         for( final CreditsAtTime creditsAtTime : cats ) {
-            final SQLStorage.CreditsAtTime cat = creditsAtTime;
-            final long posX = (long)((cat.timestamp.getTime()/divFactor - minTime) * factorX) + axisPos;
-            long posY = (long)((cat.sum_credits - minCredits) * factorY) + axisPos;
+            final CreditsAtTime cat = creditsAtTime;
+            final long posX = (long)((cat.getTimestamp().getTime()/divFactor - minTime) * factorX) + axisPos;
+            long posY = (long)((cat.getSum_credits() - minCredits) * factorY) + axisPos;
             posY = maxY - posY;
 
             if( lastX > 0 ) {
@@ -167,10 +166,10 @@ public class DiagramPainter {
         }
     }
 
-    public static java.util.List<SQLStorage.CreditsAtTime> getCreditsAtTimeList() {
+    public static java.util.List<CreditsAtTime> getCreditsAtTimeList() {
         return creditsAtTimeList;
     }
-    public static void setCreditsAtTimeList(final java.util.List<SQLStorage.CreditsAtTime> catList) {
+    public static void setCreditsAtTimeList(final java.util.List<CreditsAtTime> catList) {
         creditsAtTimeList = catList;
     }
     public static double getAvg14_m() {

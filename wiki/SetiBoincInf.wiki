@@ -11,6 +11,8 @@ You can use a console program to retrieve the current data periodically. The mai
 
 SetiBoincInf is written in JAVA and uses the Eclipse SWT GUI library (included in download). It runs on Windows and Linux (GTK).
 
+[http://www.ohloh.net/projects/10928 http://www.ohloh.net/projects/10928/widgets/project_partner_badge.gif]
+
 == *[Installation]* ==
 
 == *[Usage]* ==

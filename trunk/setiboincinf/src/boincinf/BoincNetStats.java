@@ -26,7 +26,7 @@ import boincinf.netstat.*;
 import boincinf.util.*;
 
 public class BoincNetStats {
-    public static String VERSION = "v0.42 (05/14/2005)";
+    public static String VERSION = "v0.43 (05/08/2008)";
     public static String TITLE = "SetiBoincInf - NetStats ";
 
     private static Config cfg = null;

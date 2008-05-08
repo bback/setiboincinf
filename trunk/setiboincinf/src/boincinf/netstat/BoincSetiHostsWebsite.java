@@ -157,6 +157,23 @@ public class BoincSetiHostsWebsite {
             <td>GenuineIntel 696MHz Pentium</td>
             <td>Microsoft Windows 2000 Professional Edition, Service Pack 4, (05.00.2195.00)</td></tr>
     <tr><td><a href=<
+
+NEW FORMAT:
+
+?hostid=4301547>4301547</a>
+        | <a href=results.php?hostid=4301547>tasks</a></nobr>
+        </td>
+    <td>stimpy</td>
+<td>home</td>
+
+<td align=right>650.78</td>
+<td align=right>15,567</td>
+<td>GenuineIntel<br><span class=note>Intel(R) Core(TM)2 CPU          6300  @ 1.86GHz [Intel64 Family 6 Model 15 Stepping 2]</span></td>
+<td>Microsoft Windows Vista<br><span class=note>, Service Pack 1, (06.00.6001.00)</span></td>
+<td>8 May 2008 5:28:19 UTC</td>
+</tr>
+<tr><td>
+        <nobr><a href=
     */
     private HostStats extractDataFromHostWebsite(final String html) throws Exception {
         if( html.indexOf("Your computers") < 0 ) {
@@ -200,29 +217,34 @@ public class BoincSetiHostsWebsite {
 
             data_hostname = value.trim();
 
+            // skip <td>home</td>
             searchStr = "<td>";
+            actpos = comphtml.indexOf(searchStr, actpos) + 1;
+
+
+            searchStr = "<td";
             actpos = comphtml.indexOf(searchStr, actpos);
+            searchStr = ">";
+            actpos = comphtml.indexOf(searchStr, actpos);
+
             p = comphtml.indexOf('<', actpos+1);
             actpos += searchStr.length();
             value = comphtml.substring(actpos, p);
 
             data_avg_credit = normalizeNumber(value.trim());
 
-            searchStr = "<td>";
+
+            searchStr = "<td";
             actpos = comphtml.indexOf(searchStr, actpos);
+            searchStr = ">";
+            actpos = comphtml.indexOf(searchStr, actpos);
+
             p = comphtml.indexOf('<', actpos+1);
             actpos += searchStr.length();
             value = comphtml.substring(actpos, p);
 
             data_credit = normalizeNumber(value.trim());
 
-            searchStr = "<td>";
-            actpos = comphtml.indexOf(searchStr, actpos);
-            p = comphtml.indexOf("</td>", actpos+1); // <br> may be included!!!
-            actpos += searchStr.length();
-            value = comphtml.substring(actpos, p);
-
-            data_systemtype = removeBR(value.trim());
 
             searchStr = "<td>";
             actpos = comphtml.indexOf(searchStr, actpos);
@@ -230,7 +252,17 @@ public class BoincSetiHostsWebsite {
             actpos += searchStr.length();
             value = comphtml.substring(actpos, p);
 
-            data_ostype = removeBR(value.trim());
+            data_systemtype = removeString(value.trim(), "<br><span class=note>", " ");
+            data_systemtype = removeString(data_systemtype, "</span>", "");
+
+            searchStr = "<td>";
+            actpos = comphtml.indexOf(searchStr, actpos);
+            p = comphtml.indexOf("</td>", actpos+1); // <br> may be included!!!
+            actpos += searchStr.length();
+            value = comphtml.substring(actpos, p);
+
+            data_ostype = removeString(value.trim(), "<br><span class=note>", " ");
+            data_ostype = removeString(data_ostype, "</span>", "");
 
             final SingleHostStat h = new SingleHostStat(
                     x,
@@ -248,15 +280,16 @@ public class BoincSetiHostsWebsite {
         return hs;
     }
 
-    private String removeBR(String in) {
+    private String removeString(String in, final String remove, final String subst) {
         // remove all <br> from string
         while(true) {
-            final int p = in.indexOf("<br>");
+            final int p = in.indexOf(remove);
             if( p < 0 ) {
                 break;
             }
             String workStr = in.substring(0,p); // part before <br>
-            workStr += in.substring(p+"<br>".length()+1); // part behind <br>, and skip 1 space
+            workStr += subst;
+            workStr += in.substring(p+remove.length()); // part behind <br>
             in = workStr; // continue search
         }
         return in;

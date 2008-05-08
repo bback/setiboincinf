@@ -69,7 +69,7 @@ public class SQLStorage {
         Statement s = null;
 
         try {
-            Timestamp maxWhenTaken;
+            final Timestamp maxWhenTaken;
 
             s = getConnection().createStatement();
 
@@ -234,6 +234,7 @@ public class SQLStorage {
     }
 
     // we import only the when_taken column, sum_... are computed later
+    // FIXME: needed for import
     public ArrayList<HostStats> importHostStats() {
         ResultSet r = null;
         final ArrayList<HostStats> l = new ArrayList<HostStats>();
@@ -516,6 +517,7 @@ function regress(f) {
     public final static int SAVE_DUPLICATE_DATA = 2;
     public final static int SAVE_ERROR          = 99;
 
+    // FIXME: needed for import
     public int saveToSQL(final HostStats hs) {
         if( BoincNetStats.getCfg().getBooleanProperty("update_dont_store_unchanged_data") ) {
             // check if this hs.sum_credit value is already in database
